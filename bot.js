@@ -26,7 +26,7 @@ client.on('message', msg => {
 }
   
   if(msg.content === (p + "trigger")) {
-    msg.channel.sendMessage({"<@!" + userID + ">"});
+    msg.channel.sendMessage({"<@!" + msg.author.id + ">"});
 }
   
   if(msg.content === (p + "help")) {
