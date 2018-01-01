@@ -22,11 +22,11 @@ client.on('message', msg => {
   
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, msg, trigger, repeat");
-       msg.channel.sendMessage("test3");
+       msg.channel.sendMessage("test4");
 }
   
   if(msg.content === (p + "trigger")) {
-       msg.channel.sendMessage(msg.mentions.EVERYONE_PATTERN + " fuck you all");
+       msg.channel.sendMessage(msg.mentions.EVERYONE_PATTERN('@here') + " fuck you all");
 }
   
   if(msg.content === (p + "help")) {
