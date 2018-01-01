@@ -16,8 +16,8 @@ client.on('message', msg => {
     }
   
   if(msg.content === (p + "msg ")) {
-       let target = msg.mentions.users.first();
-       msg.target.sendMessage(msg.content.substr(p.length + "msg ".length) + msg.author.nickname);
+       let target = msg.mentions.member();
+       msg.channel.sendMessage(msg.content.substr(p.length + "msg ".length) + msg.target.nickname);
 }
   
   if(msg.content === (p + "info")) {
