@@ -22,7 +22,7 @@ client.on('message', msg => {
   
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, msg, trigger, repeat");
-       msg.channel.sendMessage("test5");
+       msg.channel.sendMessage("test6");
 }
   
   if(msg.content === (p + "trigger")) {
