@@ -9,10 +9,13 @@ const p = "a!";
 client.on('message', msg => {
   if (msg.content.startsWith(p + "repeat ") ) {
         msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
-}
-      
+  }
+    if (message.content === (p + "checkavatar")){
+    // Send the user's avatar URL
+    message.reply(message.author.avatarURL);
+    }
   if(msg.content === (p + "info")) {
-       msg.channel.sendMessage("My prefix is a! and my commands are: repeat, help and hi.");
+       msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, repeat");
 }
   
   if(msg.content === (p + "help")) {
