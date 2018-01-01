@@ -10,7 +10,7 @@ client.on('message', msg => {
 	if(command === p + "alive") {
 message.channel.send("im alive");
 }
-	if(command === prefix + "hi") {
+	if(command === p + "hi") {
 message.channel.send("Hi bitch.");
 }
 	
