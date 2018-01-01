@@ -15,18 +15,22 @@ client.on('message', msg => {
     msg.reply(msg.author.avatarURL);
     }
   
-  if(msg.content === (p + "trigger ")) {
-       msg.channel.sendMessage(msg.author.nickname + " fuck you, thats all.");
+  if(msg.content === (p + "trigger")) {
+       msg.reply(' fuck you, thats all.');
 }
   
   if(msg.content === (p + "info")) {
-       msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, trigger, repeat");
-       msg.channel.sendMessage("test8");
+       msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, trigger, ping, repeat");
 }
   
   if(msg.content === (p + "help")) {
        msg.channel.sendMessage("help your ass man im a prematured bot, go to info for more info");
 }
+  
+  if(msg.content === (p + "ping")) {
+    msg.reply('Pong!');
+  }
+  
   
   if(msg.content === (p + "hi")) {
        msg.channel.sendMessage("hi bitch");
