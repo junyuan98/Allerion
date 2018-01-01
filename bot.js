@@ -7,10 +7,7 @@ client.on('ready', () => {
 
 const p = "a!";
 client.on('message', msg => {
-  if (msg.content.startsWith(p + "test ")) {
-        msg.channel.sendMessage("Well Id be + msg.content.substr("test ".length + p.length) + "! ");
-}
-  
+
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("My prefix is a! and my commands have only 2: help and hi.");
 }
