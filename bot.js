@@ -5,11 +5,12 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
 });
 
-const p = "a=";
+const p = "a!";
 client.on('message', msg => {
 	if(msg.content === (p + "hi ")) {
-       msg.channel.sendMessage("Hi bitch.");
-}
+		let target = msg.mentions.users.first();
+       		msg.channel.sendMessage("Hi bitch.");
+	}
 });
 
 client.login(process.env.BOT_TOKEN);
