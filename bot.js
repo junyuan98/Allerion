@@ -23,5 +23,6 @@ client.on('message', msg => {
   if(msg.content === (p + "hi")) {
        msg.channel.sendMessage("hi bitch");
 }
+});
 
 client.login(process.env.BOT_TOKEN);
