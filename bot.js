@@ -11,15 +11,7 @@ client.on('message', msg => {
         msg.channel.sendMessage("You just typed "+ msg.content.substr("test ".length + p.length) + "! ");
 }
   
-  if (msg.content === (p + "random") ) {
-        var x = Math.floor((Math.random() * 2 + 1);
-        if (x === 1){ 
-          msg.channel.sendMessage("1")
-        };
-    else {
-      msg.channel.sendMessage("2");
-    }
-}
+
     
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("My prefix is a! and my commands are: repeat, help and hi.");
