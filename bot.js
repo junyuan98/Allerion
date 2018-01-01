@@ -17,7 +17,6 @@ client.on('message', msg => {
   
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("Bello anello, my commands available are only : hi and help.");
-      msg.channel.sendMessage("My prefix is 'a!' ");
 }
   
   if(msg.content === (p + "hi")) {
