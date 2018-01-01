@@ -11,7 +11,7 @@ client.on('message', msg => {
         msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
 }
   
-  if (sg.content === (p + "random")) {
+  if (msg.content === (p + "random")) {
         var x = Math.floor((Math.random() * 10 + 1 );
         msg.channel.sendMessage("You just randomed "+ x + "! ");
 }
