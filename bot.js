@@ -7,14 +7,18 @@ client.on('ready', () => {
 
 const p = "a!";
 client.on('message', msg => {
-  if (msg.content.startsWith(p + "test ") ) {
+  if (msg.content.startsWith(p + "repeat ") ) {
         msg.channel.sendMessage("You just typed "+ msg.content.substr("test ".length + p.length) + "! ");
 }
   
+  if (msg.content === (p + "random") ) {
+        var x = Math.floor((Math.random() * 2 + 1);
+        if (x === 1){ msg.channel.sendMessage("1");
+                     else msg.channel.sendMessage("2");
+}
+    
   if(msg.content === (p + "info")) {
-       msg.channel.sendMessage("My prefix is a! and my commands have only 2: help and hi.");
-       msg.channel.sendMessage("Im just a testing sentence");
-      msg.channel.sendMessage("'''Test x2'''");
+       msg.channel.sendMessage("My prefix is a! and my commands are: repeat, help and hi.");
 }
   
   if(msg.content === (p + "help")) {
