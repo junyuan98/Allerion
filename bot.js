@@ -13,6 +13,8 @@ client.on('message', msg => {
   
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("My prefix is a! and my commands have only 2: help and hi.");
+       msg.channel.sendMessage("Im just a testing sentence");
+      msg.channel.sendMessage("'''Test x2'''");
 }
   
   if(msg.content === (p + "help")) {
