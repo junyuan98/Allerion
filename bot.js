@@ -16,7 +16,7 @@ client.on('message', msg => {
     }
   
   if(msg.content === (p + "msg ")) {
-       let target = msg.mentions.member();
+       let target = msg.mentions.members();
        msg.channel.sendMessage(msg.content.substr(p.length + "msg ".length) + msg.target.nickname);
 }
   
