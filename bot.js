@@ -7,7 +7,7 @@ client.on('ready', () => {
 
 const p = "a!";
 client.on('message', msg => {
-  if (msg.content.startsWith (p + "test ")) {
+  if (msg.content.startsWith(p + "test ")) {
         msg.channel.sendMessage("Well Id be + msg.content.substr("test ".length + p.length) + "! ");
 }
   
