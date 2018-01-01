@@ -16,7 +16,7 @@ client.on('message', msg => {
     }
   
   if(msg.content === (p + "trigger")) {
-       msg.reply(' fuck you, thats all.');
+       msg.reply(' your mama so fat, when bounty hunter cast track on her, the team gain global vision.');
 }
   
   if(msg.content === (p + "info")) {
