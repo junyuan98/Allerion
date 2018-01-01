@@ -16,17 +16,12 @@ client.on('message', msg => {
     }
   
   if(msg.content === (p + "msg ")) {
-       let target = msg.mentions.members();
-       msg.channel.sendMessage(msg.content.substr(p.length + "msg ".length) + msg.target.nickname);
+       msg.channel.sendMessage(msg.author.nickname);
 }
   
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, msg, trigger, repeat");
        msg.channel.sendMessage("test6");
-}
-  
-  if(msg.content === (p + "trigger")) {
-    msg.channel.sendMessage({"<@!" + msg.author.id + ">"});
 }
   
   if(msg.content === (p + "help")) {
