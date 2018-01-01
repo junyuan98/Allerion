@@ -26,10 +26,7 @@ client.on('message', msg => {
 }
   
   if(msg.content === (p + "trigger")) {
-    client.sendMessage({
- to: channelID,
- message: "<@!" + userID + ">"
-});
+    msg.channel.sendMessage({"<@!" + userID + ">"});
 }
   
   if(msg.content === (p + "help")) {
