@@ -14,6 +14,12 @@ client.on('message', msg => {
     // Send the user's avatar URL
     msg.reply(msg.author.avatarURL);
     }
+  
+  if(msg.content === (p + "msg ")) {
+       let target = msg.mentions.users.first();
+       msg.channel.sendMessage(msg.content.substr(p.length + "msg ".length));
+}
+  
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, repeat");
 }
