@@ -13,8 +13,12 @@ client.on('message', msg => {
   
   if (msg.content === (p + "random") ) {
         var x = Math.floor((Math.random() * 2 + 1);
-        if (x === 1){ msg.channel.sendMessage("1")};
-                     else {msg.channel.sendMessage("2")};
+        if (x === 1){ 
+          msg.channel.sendMessage("1")
+        };
+    else {
+      msg.channel.sendMessage("2");
+    }
 }
     
   if(msg.content === (p + "info")) {
