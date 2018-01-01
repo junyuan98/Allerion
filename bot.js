@@ -6,18 +6,16 @@ client.on('ready', () => {
 });
 
 const p = "a!";
-client.on('message', msg => {
-	if(command === p + "alive") {
-message.channel.send("im alive");
-}
-	if(command === p + "hi") {
+client.on("message", async message => {
+if(message.author.bot) return;
+//ignores all messages from other bots
+if(message.channel.type === "dm") return;
+//explained by itself
+if(message.content === "hi") {
 message.channel.send("Hi bitch.");
-}
-	
-	if(msg.content === (p + "msg ")) {
-       		let target = msg.mentions.users.first();
-       		msg.target.sendMessage(msg.content.substr(p.length + "msg ".length) + msg.author.nickname);
-	}
+});
+if(message.content === "ping") {
+message.channel.send("pong!");
 });
 
 client.login(process.env.BOT_TOKEN);
