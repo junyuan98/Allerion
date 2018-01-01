@@ -10,7 +10,7 @@ client.on('message', msg => {
   if (msg.content.startsWith(p + "repeat ") ) {
         msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
   }
-    if (message.content === (p + "checkavatar")){
+    if (msg.content === (p + "checkavatar")){
     // Send the user's avatar URL
     message.reply(message.author.avatarURL);
     }
