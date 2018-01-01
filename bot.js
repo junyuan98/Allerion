@@ -25,6 +25,7 @@ client.on('message', msg => {
 }
   
   if(msg.content === (p + "trigger")) {
+       msg.mentions.everyone === true;
        msg.channel.sendMessage(msg.mentions.everyone + "fuck you all");
 }
   
