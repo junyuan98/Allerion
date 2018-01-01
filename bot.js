@@ -6,15 +6,14 @@ client.on('ready', () => {
 });
 
 const p = "a!";
-client.on("message", async message => {
+client.on('message', msg => {
+  if(msg.content === (p + "msg ")) {
+       let target = msg.mentions.users.first();
+       msg.target.sendMessage(msg.content.substr(p.length + "msg ".length) + msg.author.nickname);
+}
   
-  if(message.content === p + "hi") {
-    message.channel.send("Hi bitch.");
-   }
-  
-  if(message.content === p + "ping") {
-    message.channel.send("pong!");
-  }
-});
+  if(msg.content === (p + "hi")) {
+       msg.channel.sendMessage("hi bitch");
+}
 
 client.login(process.env.BOT_TOKEN);
