@@ -7,9 +7,8 @@ client.on('ready', () => {
 
 const p = "a!";
 client.on('message', msg => {
-  if(msg.content === (p + "msg ")) {
-       let target = msg.mentions.users.first();
-       msg.target.sendMessage(msg.content.substr(p.length + "msg ".length) + message.author.send("lol"););
+  if (msg.content.startsWith (p + "test ")) {
+        msg.channel.sendMessage("Well Id be + msg.content.substr("test ".length + p.length) + "! ");
 }
   
   if(msg.content === (p + "info")) {
