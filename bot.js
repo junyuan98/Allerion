@@ -15,13 +15,13 @@ client.on('message', msg => {
     msg.reply(msg.author.avatarURL);
     }
   
-  if(msg.content === (p + "msg ")) {
-       msg.channel.sendMessage(msg.author.nickname);
+  if(msg.content === (p + "trigger ")) {
+       msg.reply(" fuck you, thats all.");
 }
   
   if(msg.content === (p + "info")) {
-       msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, msg, repeat");
-       msg.channel.sendMessage("test6");
+       msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, trigger, repeat");
+       msg.channel.sendMessage("test7");
 }
   
   if(msg.content === (p + "help")) {
