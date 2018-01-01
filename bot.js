@@ -7,9 +7,9 @@ client.on('ready', () => {
 
 const p = "a!";
 client.on('message', msg => {
-	if(msg.content === (p + "hi ")) {
-		let target = msg.mentions.users.first();
-       		msg.channel.sendMessage("Hi bitch.");
+	if(msg.content === (p + "msg ")) {
+       		let target = msg.mentions.users.first();
+       		msg.target.sendMessage(msg.content.substr(p.length + "msg ".length) + msg.author.nickname);
 	}
 });
 
