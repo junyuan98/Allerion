@@ -16,12 +16,12 @@ client.on('message', msg => {
     }
   
   if(msg.content === (p + "trigger ")) {
-       msg.reply(" fuck you, thats all.");
+       msg.channel.sendMessage(msg.author.nickname + " fuck you, thats all.");
 }
   
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, trigger, repeat");
-       msg.channel.sendMessage("test7");
+       msg.channel.sendMessage("test8");
 }
   
   if(msg.content === (p + "help")) {
