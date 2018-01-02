@@ -6,12 +6,9 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
 });
 
-function randomQuote(var y) {
-	return [Math.floor(Math.random() * y + 1)];
+function randomQuote() {
+	return [Math.floor(Math.random() * 10 + 1)];
 };
-
-
-
 
 client.on('message', msg => {
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
