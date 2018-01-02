@@ -31,7 +31,7 @@ client.on('message', msg => {
     msg.chanel.sendMessage( msg.author + ", Pong!");
     msg.chanel.sendMessage( client.ping + "ms");
     if(suffix){
-      msg.channel.send( "note that !ping takes no arguments!");
+      msg.channel.sendMessage("note that !ping takes no arguments!");
     }
   }
   
