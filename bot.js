@@ -9,9 +9,24 @@ client.on('ready', () => {
 const p = "a!";
 
 client.on('message', msg => {
+	
     if(msg.content === (p + "input")) {
        msg.channel.sendMessage("output");
     } 
+	
+	if (msg.content === ( p + "checkversion" )) {
+		msg.channel.sendMessage("Allerion version 0.0.1 - Alpha-alpha phase");
+	}
+
+	if (msg.content === ( p + "help" )) {
+		msg.channel.sendMessage("My prefix is a! and my available commands are:");
+		msg.channel.sendMessage("checkversion, checkavatar, random, randomquote, repeat, ping.");
+	}
+	
+	if (msg.content === (p + "checkavatar")) {
+		msg.reply(msg.author.avatarURL);
+	}
+	
 });
 
 client.login(process.env.BOT_TOKEN);
