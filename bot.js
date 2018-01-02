@@ -17,11 +17,11 @@ client.on('message', msg => {
   
   if(msg.content === (p + "trigger ")) {
     let target = msg.mentions.users.first();
-    msg.target.sendMessage(msg.target + "your mama so fat, when bounty hunter cast track on her, the team gain global vision.");
+    msg.channel.sendMessage(msg.target + "your mama so fat, when bounty hunter cast track on her, the team gain global vision.");
   }
   
   if(msg.content === (p + "info")) {
-       msg.channel.sendMessage("My prefix is a! and my commands are: checkavatar, help, hi, trigger, ping, repeat");
+       msg.channel.sendMessage("My prefix is a! and my commands are: hi, help, ping, checkavatar, repeat, trigger(beta)");  
   }
   
   if(msg.content === (p + "help")) {
@@ -29,7 +29,7 @@ client.on('message', msg => {
   }
   
   if(msg.content === (p + "ping")) {
-    msg.channel.sendMessage( msg.author + ", Pong! Your ping is " + client.ping + "ms.");
+    msg.channel.sendMessage( msg.author + ", Pong! My ping is " + client.ping + "ms.");
   }
  
   if(msg.content === (p + "hi")) {
