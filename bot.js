@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.3.1 - Recovery from dead");
+		msg.channel.sendMessage("Allerion version 0.0.3.2 - Recovery from dead");
 		msg.channel.sendMessage("sing changed to randomsing, trigger in beta");
 	}
 
