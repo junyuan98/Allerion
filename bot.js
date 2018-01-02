@@ -15,8 +15,9 @@ client.on('message', msg => {
     msg.reply(msg.author.avatarURL);
     }
   
-  if(msg.content === (p + "trigger")) {
-       msg.reply(' your mama so fat, when bounty hunter cast track on her, the team gain global vision.');
+  if(msg.content === (p + "trigger ")) {
+    let target = msg.mentions.users.first();
+    msg.target.sendMessage(msg.target + "your mama so fat, when bounty hunter cast track on her, the team gain global vision.");
   }
   
   if(msg.content === (p + "info")) {
