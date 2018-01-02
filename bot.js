@@ -25,7 +25,7 @@ client.on('message', msg => {
 		let member = msg.mentions.members.first();
 		if(!member) {
 			return msg.reply('Please tag a valid member.'); }
-		else { msg.channel.sendMessage( ${member.user.tag} ", you are weak`"); }
+		else { msg.channel.sendMessage( " ${member.user.tag} , you are weak`"); }
 	}
   
 	if(msg.content === (p + "info")) {
