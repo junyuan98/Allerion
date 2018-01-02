@@ -39,9 +39,14 @@ client.on('message', msg => {
 	}
 	
 	if (msg.content === ( p + "randomquote" )) {
-		var textArray = ['Fuck off','Fuck you','Shut up','Diam 7 pls','You are shit'];
+		var textArray = [
+			'Fuck off',
+			'Fuck you',
+			'Shut up',
+			'Diam 7 pls',
+			'You are shit'];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		msg.channel.sendMessage("Quote number = " + Quote);
+		msg.reply(${textArray[Quote]});
 	}
 	
 });
