@@ -1,11 +1,16 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const p = "a!";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
 });
 
-const p = "a!";
+function randomQuote() {
+	return quotes[Math.floor(Math.random() * 10 + 1)];
+};
+
+
 client.on('message', msg => {
   if (msg.content.startsWith(p + "repeat ") ) {
         msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
@@ -14,6 +19,11 @@ client.on('message', msg => {
     // Send the user's avatar URL
     msg.reply(msg.author.avatarURL);
     }
+  
+  if(msg.content === (p + "random")) {
+    var x = randomQuote();
+    msg.channel.sendMessage("You have randomed " + x);
+  }
   
   if(msg.content === (p + "trigger ")) {
     let target = msg.mentions.users.first();
