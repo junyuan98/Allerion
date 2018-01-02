@@ -7,7 +7,7 @@ client.on('ready', () => {
 });
 
 function randomQuote() {
-	return quotes[Math.floor(Math.random() * 10 + 1)];
+	return [Math.floor(Math.random() * 10 + 1)];
 };
 
 client.on('message', msg => {
