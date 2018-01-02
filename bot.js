@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.2 - Revived from dead");
+		msg.channel.sendMessage("Allerion version 0.0.2.1 - Revived from dead");
 		msg.channel.sendMessage("`Randomquote function is added(but not tested)`");
 	}
 
@@ -47,7 +47,7 @@ client.on('message', msg => {
 			'You are shit'
 			];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		msg.reply(`${testArray[Quote]}`);
+		msg.reply(testArray[Quote]);
 	}
 	
 });
