@@ -13,18 +13,16 @@ function randomnumber(){
 const p = "a!";
 
 client.on('message', msg => {
-	
-    if(msg.content === (p + "input")) {
-       msg.channel.sendMessage("output");
-    } 
+	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.1 - Revived from dead");
+		msg.channel.sendMessage("Allerion version 0.0.2 - Revived from dead");
+		msg.channel.sendMessage("`Randomquote function is added(but not tested)`");
 	}
 
 	if (msg.content === ( p + "help" )) {
 		msg.channel.sendMessage("My prefix is a! and my available commands are:");
-		msg.channel.sendMessage("checkversion, checkavatar, ping.");
+		msg.channel.sendMessage("checkversion, checkavatar, random, randomquote, ping.");
 	}
 	
 	if (msg.content === (p + "checkavatar")) {
@@ -38,6 +36,18 @@ client.on('message', msg => {
 	if (msg.content === (p + "random")) {
 		var x = randomnumber();
 		msg.channel.sendMessage("You have randomed " + x );
+	}
+	
+	if (msg.content === ( p + "randomquote" )) {
+		var textArray = [
+			'Fuck off',
+			'Fuck you',
+			'Shut up',
+			'Diam 7 pls',
+			'You are shit'
+			];
+		var Quote = Math.floor(Math.random() * textArray.length);
+		msg.reply(`${testArray[Quote]}`);
 	}
 	
 });
