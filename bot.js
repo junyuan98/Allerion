@@ -6,8 +6,8 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
 });
 
-function randomQuote() {
-	return [Math.floor(Math.random() * 10 + 1)];
+function randomQuote(var y) {
+	return [Math.floor(Math.random() * y + 1)];
 };
 
 client.on('message', msg => {
@@ -22,7 +22,7 @@ client.on('message', msg => {
     }
   
   if(msg.content === (p + "random")) {
-    var x = randomQuote();
+    var x = randomQuote(suffix);
     msg.channel.sendMessage("You have randomed " + x);
   }
   
@@ -32,7 +32,7 @@ client.on('message', msg => {
   }
   
   if(msg.content === (p + "info")) {
-       msg.channel.sendMessage("My prefix is a! and my commands are: hi, help, ping, checkavatar, repeat, trigger(beta)");  
+       msg.channel.sendMessage("My prefix is a! and my commands are: hi, help, ping, checkavatar, repeat, random, trigger(beta)");  
   }
   
   if(msg.content === (p + "help")) {
