@@ -40,19 +40,6 @@ client.on('message', msg => {
 	if (msg.content === ( p + "repeat" )) {
 		msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
 	}
-	
-	if (msg.content === ( p + "randomquote" )) {
-		var textArray = [
-			'Fuck off',
-			'Fuck you',
-			'Shut up',
-			'Diam 7 pls',
-			'You are shit'
-			];
-		var Quote = Math.floor(Math.random() * textArray.length);
-		msg.reply(`${testArray[Quote]}`);
-	}
-	
 });
 
 client.login(process.env.BOT_TOKEN);
