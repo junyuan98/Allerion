@@ -6,10 +6,6 @@ client.on('ready', () => {
 	client.user.setGame(`on Alpha testing`);
 });
 
-function randomnumber(){
-	return [Math.floor(Math.random() * 10 + 1)];
-};
-
 const p = "a!";
 
 client.on('message', msg => {
