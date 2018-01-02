@@ -28,11 +28,9 @@ client.on('message', msg => {
   }
   
   if(msg.content === (p + "ping")) {
-    msg.channel.sendMessage( msg.author + ", Pong!");
-    msg.channel.sendMessage( client.ping + "ms");
+    msg.channel.sendMessage( msg.author + ", Pong! Your ping is " + client.ping + "ms.");
   }
-  
-  
+ 
   if(msg.content === (p + "hi")) {
        msg.channel.sendMessage("hi bitch");
 }
