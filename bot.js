@@ -10,11 +10,12 @@ function randomQuote() {
 	return quotes[Math.floor(Math.random() * 10 + 1)];
 };
 
-
 client.on('message', msg => {
+	
   if (msg.content.startsWith(p + "repeat ") ) {
         msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
   }
+	
     if (msg.content === (p + "checkavatar")){
     // Send the user's avatar URL
     msg.reply(msg.author.avatarURL);
