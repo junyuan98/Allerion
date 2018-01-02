@@ -37,7 +37,7 @@ client.on('message', msg => {
 	
 	if (msg.content === (p + "random")) {
 		var x = randomnumber();
-		msg.channel.sendMessage("You have randomed " x );
+		msg.channel.sendMessage("You have randomed " + x );
 	}
 	
 });
