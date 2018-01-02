@@ -2,7 +2,8 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.username}!`);
+	console.log(`Logged in as ${client.user.username}!`);
+	client.user.setGame(`on beta testing`);
 });
 
 function randomQuote() {
@@ -11,6 +12,11 @@ function randomQuote() {
 
 const p = "a!";
 client.on('message', msg => {
+	
+	// It's good practice to ignore other bots. This also makes your bot ignore itself
+	// and not get into a spam loop (we call that "botception").
+	if(msg.author.bot) return;
+	
 	
 	if (msg.content.startsWith(p + "repeat ") ) {
 		msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
@@ -23,8 +29,7 @@ client.on('message', msg => {
 	
 	if(msg.content === (p + "trigger ")) {
 		let member = msg.mentions.members.first();
-		if(!member) {
-			return msg.reply('Please tag a valid member.'); }
+		if(!member) { msg.reply('Please tag a valid member.'); }
 		else { msg.channel.sendMessage( " ${member.user.tag} , you are weak`"); }
 	}
   
