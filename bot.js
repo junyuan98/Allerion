@@ -6,8 +6,8 @@ client.on('ready', () => {
 	client.user.setGame(`on Alpha testing`);
 });
 
-function randomnumber(var y){
-	return [Math.floor(Math.random() * y + 1)];
+function randomnumber(){
+	return [Math.floor(Math.random() *  + 1)];
 };
 
 const p = "a!";
@@ -34,7 +34,7 @@ client.on('message', msg => {
 	}
 	
 	if (msg.content === (p + "random")) {
-		var x = randomnumber(suffix);
+		var x = randomnumber();
 		msg.channel.sendMessage("You have randomed " + x );
 	}
 	
