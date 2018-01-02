@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.3.2 - Recovery from dead");
+		msg.channel.sendMessage("Allerion version 0.0.3.3 - Recovery from dead");
 		msg.channel.sendMessage("sing changed to randomsing, trigger in beta");
 	}
 
@@ -63,6 +63,8 @@ client.on('message', msg => {
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
 		msg.channel.sendMessage(`${member.user.tag}`);
+		msg.channel.sendMessage(`${msg.author.tag}`);
+		msg.channel.sendMessage(msg.member);
 	}
 	
 	if (msg.content === ( p + "randomsing" )) {
