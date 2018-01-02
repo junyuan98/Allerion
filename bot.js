@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.3.3 - Recovery from dead");
+		msg.channel.sendMessage("Allerion version 0.0.3.4 - Recovery from dead");
 		msg.channel.sendMessage("sing changed to randomsing, trigger in beta");
 	}
 
@@ -32,6 +32,8 @@ client.on('message', msg => {
 	if (msg.content === ( p + "ping" )) {
 		msg.channel.sendMessage( msg.author + ", Pong! My ping is " + client.ping + "ms." );
 	}
+	
+	
 	
 	if (msg.content === (p + "random")) {
 		var x = randomnumber();
@@ -52,8 +54,6 @@ client.on('message', msg => {
 	
 	if (msg.content === ( p + "trigger " )) {
 		let member = msg.mentions.members.first();
-		if(!member)
-			return msg.reply("Please mention a valid member of this server");
 		var textArray = [
 			'Fuck off',
 			'Fuck you',
@@ -62,9 +62,7 @@ client.on('message', msg => {
 			'You are shit'
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		msg.channel.sendMessage(`${member.user.tag}`);
-		msg.channel.sendMessage(`${msg.author.tag}`);
-		msg.channel.sendMessage(msg.member);
+		msg.channel.sendMessage(member);
 	}
 	
 	if (msg.content === ( p + "randomsing" )) {
