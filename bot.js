@@ -33,6 +33,10 @@ client.on('message', msg => {
 		msg.channel.sendMessage( msg.author + ", Pong! My ping is " + client.ping + "ms." );
 	}
 	
+	if (msg.content === (p + "tag")) {
+		let member = msg.mentions.members.first();
+		msg.channel.sendMessage(`${member.user.tag}`);
+	}
 	
 	
 	if (msg.content === (p + "random")) {
