@@ -1,9 +1,11 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-client.on('ready',() => {
-	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setGame(`Alpha phase testing`);
+client.on("ready", () => {
+	
+  // This event will run if the bot starts, and logs in, successfully.
+  console.log(`Bot has started`); 
+  client.user.setGame(`on Alpha-testing`);
 });
 
 function randomnumber(){
@@ -12,33 +14,36 @@ function randomnumber(){
 
 const p = "a!";
 
-client.on('message', msg => {
-	if (msg.author.bot) return;
+client.on("message", async message => {
 	
-	if (msg.content === ( p + "checkversion" )) {
+	if (msg.author.bot) return;
+	// Here we separate our "command" name, and our "arguments" for the command. 
+	// e.g. if we have the message "+say Is this the real life?" , we'll get the following:
+	// command = say
+	// args = ["Is", "this", "the", "real", "life?"]
+	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
+	
+	if (command === "checkversion") {
 		msg.channel.sendMessage("Allerion version 0.0.1 - Alpha-alpha phase");
 	}
 	
-	if (msg.content === ( p + "help" )) {
+	if (command === "help") {
 		msg.channel.sendMessage("My prefix is a! and my available commands are:");
 		msg.channel.sendMessage("checkversion, checkavatar, random, randomquote, repeat, ping.");
 	}
 	
-	if (msg.content === (p + "random")) {
+	if (command === "random") {
 		var x = randomnumber();
 		msg.channel.sendMessage("You have randomed " x );
 	}
 	
-	if (msg.content === (p + "checkavatar")) {
+	if (command === "checkavatar") {
 		msg.reply(msg.author.avatarURL);
 	}
 	
-	if (msg.content === ( p + "ping" )) {
+	if (command === "ping") {
 		msg.channel.sendMessage( msg.author + ", Pong! My ping is " client.ping + "ms." );
-	}
-
-	if (msg.content === ( p + "repeat" )) {
-		msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
 	}
 });
 
