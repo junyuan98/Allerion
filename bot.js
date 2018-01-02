@@ -14,14 +14,14 @@ function randomnumber(){
 
 const p = "a!";
 
-client.on("message", async message => {
+client.on('message', msg => {
 	
 	if (msg.author.bot) return;
 	// Here we separate our "command" name, and our "arguments" for the command. 
 	// e.g. if we have the message "+say Is this the real life?" , we'll get the following:
 	// command = say
 	// args = ["Is", "this", "the", "real", "life?"]
-	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+	const args = msg.content.slice("a!".length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	
 	if (command === "checkversion") {
