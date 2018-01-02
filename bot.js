@@ -16,13 +16,13 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.3.0 - Recovery from dead");
-		msg.channel.sendMessage("`Sing is added, randomquote changed to selftrigger, random in beta phase`");
+		msg.channel.sendMessage("Allerion version 0.0.3.1 - Recovery from dead");
+		msg.channel.sendMessage("sing changed to randomsing, trigger in beta");
 	}
 
 	if (msg.content === ( p + "help" )) {
 		msg.channel.sendMessage("My prefix is a! and my available commands are:");
-		msg.channel.sendMessage("checkversion, checkavatar, random(beta), selftrigger, sing, ping.");
+		msg.channel.sendMessage("checkversion, checkavatar, random, selftrigger, trigger, randomsing, ping.");
 	}
 	
 	if (msg.content === (p + "checkavatar")) {
@@ -50,7 +50,22 @@ client.on('message', msg => {
 		msg.reply(`${textArray[Quote]}`);
 	}
 	
-	if (msg.content === ( p + "sing" )) {
+	if (msg.content === ( p + "trigger" )) {
+		let member = msg.mentions.members.first();
+		if(!member)
+			return msg.reply("Please mention a valid member of this server");
+		var textArray = [
+			'Fuck off',
+			'Fuck you',
+			'Shut up',
+			'Diam 7 pls',
+			'You are shit'
+		];
+		var Quote = Math.floor(Math.random() * textArray.length);
+		msg.channel.sendMessage(`${member.user.tag}, ${textArray[Quote]}`);
+	}
+	
+	if (msg.content === ( p + "randomsing" )) {
 		var songLyrics = [
 			'Havana oh nana, half of my heart is in havana na na na',
 			'Is it too late now to say sorry',
@@ -59,6 +74,7 @@ client.on('message', msg => {
 			'Despacito, nlskdnflkjkljfklsrfkljdlk burito',
 			'You just want attention, you dont want my heart',
 			'We were just kids when we fell , in, love',
+			'
 		];
 		var number = Math.floor(Math.random() * songLyrics.length);
 		msg.channel.sendMessage(`${songLyrics[number]}`);
