@@ -25,7 +25,7 @@ client.on('message', msg => {
 			 'You are shit' 
 		 ];
 		var Quote = Math.floor(Math.random()*textArray.length);
-		msg.reply(`${testArray[Meme]}`);
+		msg.reply(`${testArray[Quote]}`);
 	}
 	
 	if (msg.content.startsWith(p + "repeat ") ) {
