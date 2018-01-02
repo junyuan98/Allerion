@@ -10,7 +10,13 @@ function randomQuote(var y) {
 	return [Math.floor(Math.random() * y + 1)];
 };
 
+
+
+
 client.on('message', msg => {
+	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
+	
 	
   if (msg.content.startsWith(p + "repeat ") ) {
         msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
@@ -20,12 +26,7 @@ client.on('message', msg => {
     // Send the user's avatar URL
     msg.reply(msg.author.avatarURL);
     }
-  
-  if(msg.content === (p + "random")) {
-    var x = randomQuote(suffix);
-    msg.channel.sendMessage("You have randomed " + x);
-  }
-  
+
   if(msg.content === (p + "trigger ")) {
     let target = msg.mentions.users.first();
     msg.channel.sendMessage(msg.target + "your mama so fat, when bounty hunter cast track on her, the team gain global vision.");
