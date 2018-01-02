@@ -11,9 +11,6 @@ function randomQuote() {
 };
 
 client.on('message', msg => {
-	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
-	
 	
   if (msg.content.startsWith(p + "repeat ") ) {
         msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
@@ -25,8 +22,10 @@ client.on('message', msg => {
     }
 
   if(msg.content === (p + "trigger ")) {
-    let target = msg.mentions.users.first();
-    msg.channel.sendMessage(msg.target + "your mama so fat, when bounty hunter cast track on her, the team gain global vision.");
+    let member = msg.mentions.members.first();
+	  if(!member)
+		  return msg.reply('Please tag a valid member.');
+	  else { msg.channel.sendMessage( ${member.user.tag} ", you are weak`"); }
   }
   
   if(msg.content === (p + "info")) {
