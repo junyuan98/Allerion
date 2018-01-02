@@ -50,7 +50,7 @@ client.on('message', msg => {
 		msg.reply(`${textArray[Quote]}`);
 	}
 	
-	if (msg.content === ( p + "trigger" )) {
+	if (msg.content === ( p + "trigger " )) {
 		let member = msg.mentions.members.first();
 		if(!member)
 			return msg.reply("Please mention a valid member of this server");
@@ -62,7 +62,7 @@ client.on('message', msg => {
 			'You are shit'
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		msg.channel.sendMessage(`${member.user.tag}, ${textArray[Quote]}`);
+		msg.channel.sendMessage(`${member.user.tag}`);
 	}
 	
 	if (msg.content === ( p + "randomsing" )) {
