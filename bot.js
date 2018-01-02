@@ -22,9 +22,6 @@ client.on('message', msg => {
   
   if(msg.content === (p + "info")) {
        msg.channel.sendMessage("My prefix is a! and my commands are: hi, help, ping, checkavatar, repeat, trigger(beta)");  
-    if(suffix){
-      msg.channel.send( "note that !ping takes no arguments!");
-    }
   }
   
   if(msg.content === (p + "help")) {
