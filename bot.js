@@ -16,8 +16,8 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.2.2 - Revived from dead");
-		msg.channel.sendMessage("`Randomquote function is added(but not tested)`");
+		msg.channel.sendMessage("Allerion version 0.0.2.3 - Revived from dead");
+		msg.channel.sendMessage("`Randomquote function is in progress(but not tested)`");
 	}
 
 	if (msg.content === ( p + "help" )) {
@@ -42,7 +42,6 @@ client.on('message', msg => {
 		var textArray = ['Fuck off','Fuck you','Shut up','Diam 7 pls','You are shit'];
 		var Quote = Math.floor(Math.random() * textArray.length);
 		msg.channel.sendMessage("Quote number = " + Quote);
-		msg.channel.sendMessage( testArray[Quote]);
 	}
 	
 });
