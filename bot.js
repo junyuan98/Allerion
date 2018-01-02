@@ -46,7 +46,7 @@ client.on('message', msg => {
 			'Diam 7 pls',
 			'You are shit'];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		msg.reply(${textArray[Quote]});
+		msg.reply(`${textArray[Quote]}`);
 	}
 	
 });
