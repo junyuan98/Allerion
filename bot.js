@@ -3,11 +3,11 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setGame(`on beta testing`);
+	client.user.setGame(`Alpha phase testing`);
 });
 
 function randomQuote() {
-	return [Math.floor(Math.random() * 10 + 1)];
+	return [Math.floor(Math.random() * 3 + 1)];
 };
 
 const p = "a!";
@@ -17,6 +17,21 @@ client.on('message', msg => {
 	// and not get into a spam loop (we call that "botception").
 	if(msg.author.bot) return;
 	
+	if (msg.content === (p + "randomquote")){
+		var x = randomQuote();
+		if ( x = 1 )
+		{
+			msg.channel.sendMessage("Fuck you");
+		}
+		if ( x = 2 )
+		{
+			msg.channel.sendMessage("Shut up");
+		}
+		if ( x = 3 )
+		{
+			msg.channel.sendMessage("Diam 7 pls");
+		}
+	}
 	
 	if (msg.content.startsWith(p + "repeat ") ) {
 		msg.channel.sendMessage("You just typed "+ msg.content.substr("repeat ".length + p.length) + "! ");
@@ -34,7 +49,7 @@ client.on('message', msg => {
 	}
   
 	if(msg.content === (p + "info")) {
-		msg.channel.sendMessage("My prefix is a! and my commands are: hi, help, ping, checkavatar, repeat, random, trigger(beta)");  
+		msg.channel.sendMessage("My prefix is a! and my commands are: hi, help, ping, checkavatar, repeat, randomquote, trigger(beta)");  
 	}
  
 	if(msg.content === (p + "help")) {
