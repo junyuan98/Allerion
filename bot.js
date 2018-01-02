@@ -7,7 +7,7 @@ client.on('ready', () => {
 });
 
 function randomnumber(){
-	return [Math.floor(Math.random() *  + 1)];
+	return [Math.floor(Math.random() * 10 + 1)];
 };
 
 const p = "a!";
