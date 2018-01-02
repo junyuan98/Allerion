@@ -28,8 +28,8 @@ client.on('message', msg => {
   }
   
   if(msg.content === (p + "ping")) {
-    msg.chanel.sendMessage( msg.author + ", Pong!");
-    msg.chanel.sendMessage( client.ping + "ms");
+    msg.channel.sendMessage( msg.author + ", Pong!");
+    msg.channel.sendMessage( client.ping + "ms");
     if(suffix){
       msg.channel.sendMessage("note that !ping takes no arguments!");
     }
