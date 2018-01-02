@@ -18,19 +18,14 @@ client.on('message', msg => {
 	if(msg.author.bot) return;
 	
 	if (msg.content === (p + "randomquote")){
-		var x = randomQuote();
-		if ( x = 1 )
-		{
-			msg.channel.sendMessage("Fuck you");
-		}
-		if ( x = 2 )
-		{
-			msg.channel.sendMessage("Shut up");
-		}
-		if ( x = 3 )
-		{
-			msg.channel.sendMessage("Diam 7 pls");
-		}
+		 var textArray = [
+			 'Fuck You',
+			 'Diam 7 pls',
+			 'Shut up', 
+			 'You are shit' 
+		 ];
+		var Quote = Math.floor(Math.random()*textArray.length);
+		msg.reply(`${testArray[Meme]}`);
 	}
 	
 	if (msg.content.startsWith(p + "repeat ") ) {
