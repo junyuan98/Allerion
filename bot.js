@@ -35,7 +35,7 @@ client.on('message', msg => {
   }
   
   if(msg.content === (p + "help")) {
-       msg.channel.sendMessage("help your ass man im a prematured bot, go to info for more info");
+       msg.channel.sendMessage("```help your ass man im a prematured bot, go to info for more info```");
   }
   
   if(msg.content === (p + "ping")) {
