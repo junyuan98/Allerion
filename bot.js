@@ -16,8 +16,8 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.2.3 - Revived from dead");
-		msg.channel.sendMessage("`Randomquote function is in progress(but not tested)`");
+		msg.channel.sendMessage("Allerion version 0.0.2.4 - Revived from dead");
+		msg.channel.sendMessage("`Randomquote function is done(i guess)`");
 	}
 
 	if (msg.content === ( p + "help" )) {
