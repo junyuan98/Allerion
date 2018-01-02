@@ -74,7 +74,6 @@ client.on('message', msg => {
 			'Despacito, nlskdnflkjkljfklsrfkljdlk burito',
 			'You just want attention, you dont want my heart',
 			'We were just kids when we fell , in, love',
-			'
 		];
 		var number = Math.floor(Math.random() * songLyrics.length);
 		msg.channel.sendMessage(`${songLyrics[number]}`);
