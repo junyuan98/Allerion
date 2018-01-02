@@ -6,8 +6,8 @@ client.on('ready', () => {
 	client.user.setGame(`Alpha phase testing`);
 });
 
-function randomQuote() {
-	return [Math.floor(Math.random() * 3 + 1)];
+function random() {
+	return [Math.floor(Math.random() * 10 + 1];
 };
 
 const p = "a!";
@@ -16,7 +16,7 @@ client.on('message', msg => {
 	// It's good practice to ignore other bots. This also makes your bot ignore itself
 	// and not get into a spam loop (we call that "botception").
 	if(msg.author.bot) return;
-	
+                 
 	if (msg.content === (p + "randomquote")){
 		 var textArray = [
 			 'Fuck You',
@@ -25,7 +25,12 @@ client.on('message', msg => {
 			 'You are shit' 
 		 ];
 		var Quote = Math.floor(Math.random()*textArray.length);
-		msg.reply(`${testArray[Quote]}`);
+		msg.reply("${testArray[Quote]}");
+	}
+	
+	if(msg.content === (p + "random")) {
+		var x = random();
+		msg.channel.sendMessage("You have randomed " + x);
 	}
 	
 	if (msg.content.startsWith(p + "repeat ") ) {
