@@ -3,11 +3,11 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setPresence({ game: { name: 'Alpha 0.0.3.8', type: 0 } });
+	client.user.setPresence({ game: { name: 'Alpha 0.0.4.0', type: 0 } });
 });
 
-function randomnumber(){
-	return [Math.floor(Math.random() * 10 + 1)];
+function randomnumber(var y){
+	return [Math.floor(Math.random() * y + 1)];
 };
 
 const p = "a!";
@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.3.8 - Its getting better");
+		msg.channel.sendMessage("Allerion version A.0.0.4.0 - Its getting better");
 		msg.channel.sendMessage("random and tag in beta,trigger removed");
 	}
 
@@ -41,9 +41,12 @@ client.on('message', msg => {
 	
 	if (msg.content.startsWith(p + "random ")) {
 		var y = parseInt(msg.content.substr("random ".length + p.length), 10);
-		var x = randomnumber();
-		msg.channel.sendMessage( y );
-		msg.channel.sendMessage("You have randomed " + x );
+		if ( y === NaN )
+			msg.channel.sendMessage("Please enter a valid number");
+		else {
+			var x = randomnumber(y);
+			msg.channel.sendMessage("You have randomed " + x );
+		}
 	}
 	
 	if (msg.content === ( p + "selftrigger" )) {
