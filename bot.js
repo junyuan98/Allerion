@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.7.2 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.3 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
