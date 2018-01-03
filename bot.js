@@ -6,7 +6,7 @@ client.on('ready', () => {
 	client.user.setPresence({ game: { name: 'Alpha 0.0.4.0', type: 0 } });
 });
 
-function randomnumber(var y){
+function randomnumber(y){
 	return [Math.floor(Math.random() * y + 1)];
 };
 
@@ -61,7 +61,7 @@ client.on('message', msg => {
 		msg.reply(`${textArray[Quote]}`);
 	}
 	
-	if (msg.content === ( p + "trigger " )) {
+	if (msg.content.startsWith(p + "trigger ")) {
 		let member = msg.mentions.members.first();
 		var textArray = [
 			'Fuck off',
