@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.7.18 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.20 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -28,7 +28,7 @@ client.on('message', msg => {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
-		.addField("Commands", "**version** :Checks version\n**profile** :Opens own profile\n**avatar** :Shows your avatar\n**random** :Input a number and randoms\n**trigger** :tag people and have some fun\n**randomsing** :sing along session\n**ping** : Plays ping pong with you", true)
+		.addField("**Commands**", "**version**\t:Checks version\n**profile**\t:Opens own profile\n**avatar**\t:Shows your avatar\n**random**\t:Input a number and randoms\n**trigger**\t:tag people and have some fun\n**randomsing**\t:sing along session\n**ping**\t: Plays ping pong with you")
 		.setFooter("Allerion")
 		.setTimestamp()
 		.setColor("#000000")
@@ -102,9 +102,11 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content === ( p + "test" )) {
-		msg.channel.sendMessage("<@" + msg.author.id +">");
+		let target = msg.mentions.users.first();
+		msg.channel.sendMessage(msg.content.substr(p.length + "test ".length) + msg.author.nickname);
 	}
 	
+	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
 	if (msg.content.startsWith(p + "tag ")) {
 		if ( msg.content.substr("tag ".length + p.length) === "<@!331053004910362624>" )
 			msg.channel.sendMessage("Secret code success");
