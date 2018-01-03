@@ -26,10 +26,9 @@ client.on('message', msg => {
 	
 	if (msg.content === (p + "newhelp")) {
 		let botembed = new Discord.RichEmbed()
-		.setAuthor("Allerion" , msg.author.avatarURL)
-		.setThumbnail(msg.author.avatarURL)
-		.addField("Commands", "version\nprofile\navatar\nrandom\ntrigger\nrandomsing\nping",true )
-		.addField("Function", "None for now",true )
+		.setAuthor("Allerion" , "https://bestsecuritysearch.com/wp-content/uploads/2016/10/discord-logo-bss.png")
+		.addField("Commands", "version\nprofile\navatar\nrandom\ntrigger\nrandomsing\nping", true)
+		.addField("Function", "None for now",true)
 		.setFooter("Allerion")
 		.setTimestamp()
 		.setColor("#000000")
