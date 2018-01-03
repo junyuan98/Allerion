@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.7.14 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.16 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -28,7 +28,7 @@ client.on('message', msg => {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
-		.addField("Commands", "version\nprofile\navatar\nrandom\ntrigger\nrandomsing\nping", true)
+		.addField("Commands", "**version** :Checks version\n**profile** :Opens own profile\n**avatar** :Shows your avatar\n**random** :Input a number and randoms\n**trigger** :tag people and have some fun\n**randomsing** :sing along session\n**ping** : Plays ping pong with you", true)
 		.setFooter("Allerion")
 		.setTimestamp()
 		.setColor("#000000")
