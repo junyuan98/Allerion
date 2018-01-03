@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.5.10 - Im _still_ getting better");
+		msg.channel.sendMessage("Allerion version A.0.0.5.11 - Im _still_ getting better");
 		msg.channel.sendMessage("Checkprofile is added, trigger is _still_ in process");
 	}
 
@@ -97,7 +97,7 @@ client.on('message', msg => {
 		.setAuthor(msg.author.username , msg.author.avatarURL)
 		.setThumbnail(msg.author.avatarURL)
 		.addField("User", "text below field")
-		.addField("UserID", `${msg.author.userid}`)
+		.addField("UserID", `${msg.author.id}`)
 		.setTimestamp()
 		.setColor("#b200ff")
 		.addBlankField(true);
