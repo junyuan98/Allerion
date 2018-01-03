@@ -101,8 +101,14 @@ client.on('message', msg => {
 
 	//Beta commands
 	if (msg.content === ( p + "test" )) {
-		var x = client.users.get('a user id');
-		msg.channel.sendMessage( `${x}` );
+		var x = client.users.id;
+		msg.channel.sendMessage( x );
+	}
+	
+	if (msg.content === ( p + "testing" )) {
+		let target = msg.mentions.users.first();
+		msg.channel.sendMessage(target);
+		target;
 	}
 	
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
