@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.7.26 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.28 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -28,7 +28,7 @@ client.on('message', msg => {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
-		.addField("**Commands**", "**version**\t:Checks version\n**profile**\t:Opens own profile\n**avatar**\t:Shows your avatar\n**random**\t:Input a number and randoms\n**trigger**\t:tag people and have some fun\n**randomsing**\t:sing along session\n**ping**\t: Plays ping pong with you")
+		.addField("**Commands**", "**version**\n**greetings**\n**profile**\n**avatar**\n**random**\n**trigger**\n**randomsing**\n**ping**")
 		.setFooter("Allerion")
 		.setTimestamp()
 		.setColor("#000000")
@@ -104,16 +104,16 @@ client.on('message', msg => {
 		if (msg.author.id === ALLERIA)
 			msg.channel.sendMessage("Greetings owner <3 Have a nice day~");
 		else
-			msg.channel.sendMessage("Greetings Earthling " + msg.author.id + ", you are OP");
+			msg.channel.sendMessage("Greetings Discordling " + msg.author.id + ", have a nice day");
 	}
 	
 	//Beta commands
-	if (msg.content === ( p + "test " )) {
-		msg.mentions.users.first();
-		msg.channel.sendMessage(msg.target.id + "1");
-		msg.channel.sendMessage(`${msg.target.id}` + "2");
-		msg.channel.sendMessage( msg.target.users.id + "3");
-		msg.channel.sendMessage( `${msg.target.users.id}` + "4");
+	if (msg.content === ( p + "test1" )) {
+		client.users.get('a user id').send('Testing');
+	}
+	
+	if (msg.content === ( p + "test2" )) {
+		msg.mentions.users.first().send('Testing purposes');
 	}
 	
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
