@@ -72,7 +72,7 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content === (p + "test")) {
-		msg.channel.sendMessage("${msg.author.username} and ${msg.author.avatarURL}");
+		msg.channel.sendMessage(msg.author.username);
 	}
 	if (msg.content === (p + "tag")) {
 		let member = msg.mentions.members.first();
@@ -94,13 +94,16 @@ client.on('message', msg => {
 	
 	if (msg.content === (p + "checkprofile")) {
 		let embed = new Discord.RichEmbed()
-		.setAuthor(msg.author.username, "${msg.author.avatarURL}")
-		.addField("field", "text below field")
-		.setFooter("Im-a-footer")
+		.setAuthor("text", "https://bestsecuritysearch.com/wp-content/uploads/2016/10/discord-logo-bss.png")
+		.setThumbnail("https://image.ibb.co/dkT4yR/XD.png")
+		.addField("field", "text below field", true)
+		.addField("field2", "text below field2", true)
+		.setImage("https://image.ibb.co/dkT4yR/XD.png")
+		.setFooter("text")
 		.setTimestamp()
 		.setColor("#b200ff")
 		.addBlankField(true);
-		msg.channel.sendMessage({embed});
+		msg.channel.send({embed});
 	}
 });
 
