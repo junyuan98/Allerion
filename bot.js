@@ -101,7 +101,7 @@ client.on('message', msg => {
 	}
 	
 	//Beta commands
-	if (msg.content === ( p + "test " )) {
+	if (msg.content === ( p + "test" )) {
 		msg.channel.sendMessage(msg.author.id);
 		msg.channel.sendMessage("<@" + msg.author.id +">");
 	}
