@@ -102,7 +102,7 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content === ( p + "test " )) {
-		let target = msg.mentions.users.first();
+		msg.mentions.users.first();
 		msg.channel.sendMessage(msg.target.id + "1");
 		msg.channel.sendMessage(`${msg.target.id}` + "2");
 		msg.channel.sendMessage( msg.target.users.id + "3");
