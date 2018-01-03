@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setPresence({ game: { name: 'on Alpha phase testing', type: 0 } });
+	client.user.setPresence({ game: { name: 'Alpha 0.0.3.5', type: 0 } });
 });
 
 function randomnumber(){
@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.3.5 - Recovery from dead");
+		msg.channel.sendMessage("Allerion version A.0.0.3.5 - Its getting better");
 		msg.channel.sendMessage("random and tag in beta,trigger removed");
 	}
 
