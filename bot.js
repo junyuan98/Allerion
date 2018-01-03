@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.7.6 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.7 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -102,6 +102,8 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content.startsWith(p + "tag ")) {
+		if ( msg.content.substr("trigger ".length + p.length) === "@Allerino" )
+			msg.channel.sendMessage("Secret code");
 		msg.channel.sendMessage(`${msg.mentions.users.tag}`);
 	}
 	
