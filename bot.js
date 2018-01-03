@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.8.0 - A Help in hand");
+		msg.channel.sendMessage("Allerion version A.0.0.8.1 - A Help in hand");
 		msg.channel.sendMessage("Help appearance has been updated");
 	}
 	
@@ -104,7 +104,7 @@ client.on('message', msg => {
 
 	//Beta commands
 	if (msg.content === ( p + "test" )) {
-		let target = meg.mentions.users.first();
+		let target = msg.mentions.users.first();
 		msg.channel.sendMessage(target + " hi");
 	}
 	
