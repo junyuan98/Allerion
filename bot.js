@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.7.13 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.14 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -107,10 +107,9 @@ client.on('message', msg => {
 	}
 	
 	if (msg.content.startsWith(p + "tag ")) {
-		if ( msg.content.substr("tag ".length + p.length) === "<@331053004910362624>" )
-			msg.channel.sendMessage("Secret code success");
-		else
-			msg.channel.sendMessage("Wrong");
+		let target = msg.mentions.users.first();
+		msg.channel.sendMessage(`${target.id}` + "1");
+		msg.channel.sendMessage(`${msg.target.id}` + "2");
 	}
 	
 });
