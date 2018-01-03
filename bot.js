@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.8.2 - A Help in hand");
+		msg.channel.sendMessage("Allerion version A.0.0.8.4 - A Help in hand");
 		msg.channel.sendMessage("```Help appearance has been updated```");
 	}
 	
@@ -93,7 +93,12 @@ client.on('message', msg => {
 			'You just want attention, you dont want my heart',
 			'We were just kids when we fell , in, love',
 			'People fall in love in mysterious ways, maybe just the touch of a hand',
-			'你好吗,我会中文 Ching Chong'
+			'你好吗,我会中文 Ching Chong',
+			'AND IIIIIIIIIII***IIII***IIII WILL ALWAYSSSSS LOVEEE YOUUUUU_UUU_**UUU**_UUU_UUU',
+			'When I see your face, theres not a thing that I would change, cause youre amazing, just the way you are',
+			'Gave you all I had and you tossed it in the trash, you tossed it in the trash, you did',
+			'I hear Jerusalem bells a-ringing, Roman Cavalry choirs are singing',
+			'Duuuuuuuuuuuuuuuuuuuuuuun, Dun dun dun dun dun dun dun dun dun dun dun dundun dun dundundun dun dun dun dun dun dun dundun dundun, BOOM'
 		];
 		var number = Math.floor(Math.random() * songLyrics.length);
 		msg.channel.sendMessage(`${songLyrics[number]}`);
