@@ -108,7 +108,6 @@ client.on('message', msg => {
 	}
 	
 	if (msg.content === ( p + "botavatar" )) {
-		msg.channel.sendMessage(client.user.avatarURL);
 		msg.channel.sendMessage(client.avatarURL);
 	}
 
