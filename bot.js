@@ -16,32 +16,27 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.7.28 - Triggerino");
-		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
-	}
-
-	if (msg.content === ( p + "help" )) {
-		msg.channel.sendMessage("My prefix is a! and my available commands are:\n```version, profile, avatar, random, trigger, randomsing, ping.```");
+		msg.channel.sendMessage("Allerion version A.0.0.8.0 - A Help in hand");
+		msg.channel.sendMessage("Help appearance has been updated");
 	}
 	
-	if (msg.content === (p + "newhelp")) {
+	if (msg.content === (p + "help")) {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
-		.addField("**Commands**", "**version**\n**greetings**\n**profile**\n**avatar**\n**random**\n**trigger**\n**randomsing**\n**ping**")
+		.addField("**Commands**", "**ping**\n**avatar**\n**random**\n**version**\n**profile**\n**trigger**\n**greetings**\n**randomsing**")
 		.setFooter("Allerion")
 		.setTimestamp()
 		.setColor("#000000")
 		.addBlankField(true);
 		msg.channel.send({embed});
 	}
-		
-	if (msg.content === (p + "avatar")) {
-		msg.reply(msg.author.avatarURL);
-	}
 	
 	if (msg.content === ( p + "ping" )) {
 		msg.channel.sendMessage( msg.author + ", Pong! My ping is " + client.ping + "ms." );
+	}
+	if (msg.content === (p + "avatar")) {
+		msg.reply(msg.author.avatarURL);
 	}
 	
 	if (msg.content.startsWith(p + "random ")) {
@@ -52,22 +47,6 @@ client.on('message', msg => {
 			var x = randomnumber(y);
 			msg.channel.sendMessage("You have randomed " + x );
 		}
-	}
-	
-	if (msg.content === ( p + "randomsing" )) {
-		var songLyrics = [
-			'Havana oh nana, half of my heart is in havana na na na',
-			'Is it too late now to say sorry',
-			'2+2 IS 4, MINUS 1 THATS 3 QUICK MATHS',
-			'BOOM BOOM POW GONNA GET GET',
-			'Despacito, nlskdnflkjkljfklsrfkljdlk burito',
-			'You just want attention, you dont want my heart',
-			'We were just kids when we fell , in, love',
-			'People fall in love in mysterious ways, maybe just the touch of a hand',
-			'你好吗,我会中文 Ching Chong'
-		];
-		var number = Math.floor(Math.random() * songLyrics.length);
-		msg.channel.sendMessage(`${songLyrics[number]}`);
 	}
 	
 	if (msg.content === (p + "profile")) {
@@ -107,13 +86,26 @@ client.on('message', msg => {
 			msg.channel.sendMessage("Greetings Discordling " + msg.author.id + ", have a nice day");
 	}
 	
-	//Beta commands
-	if (msg.content === ( p + "test1" )) {
-		client.users.get('a user id').send('Testing');
+	if (msg.content === ( p + "randomsing" )) {
+		var songLyrics = [
+			'Havana oh nana, half of my heart is in havana na na na',
+			'Is it too late now to say sorry',
+			'2+2 IS 4, MINUS 1 THATS 3 QUICK MATHS',
+			'BOOM BOOM POW GONNA GET GET',
+			'Despacito, nlskdnflkjkljfklsrfkljdlk burito',
+			'You just want attention, you dont want my heart',
+			'We were just kids when we fell , in, love',
+			'People fall in love in mysterious ways, maybe just the touch of a hand',
+			'你好吗,我会中文 Ching Chong'
+		];
+		var number = Math.floor(Math.random() * songLyrics.length);
+		msg.channel.sendMessage(`${songLyrics[number]}`);
 	}
-	
-	if (msg.content === ( p + "test2" )) {
-		msg.mentions.users.first().send('Testing purposes');
+
+	//Beta commands
+	if (msg.content === ( p + "test" )) {
+		let target = meg.mentions.users.first();
+		msg.channel.sendMessage(target + " hi");
 	}
 	
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
