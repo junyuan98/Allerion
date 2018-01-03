@@ -16,13 +16,13 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.7.1 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.2 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
 	if (msg.content === ( p + "help" )) {
 		msg.channel.sendMessage("My prefix is a! and my available commands are:");
-		msg.channel.sendMessage("version, profile, avatar, random, selftrigger, randomsing, ping.");
+		msg.channel.sendMessage("version, profile, avatar, random, trigger, randomsing, ping.");
 	}
 	
 	if (msg.content === (p + "avatar")) {
@@ -43,18 +43,6 @@ client.on('message', msg => {
 		}
 	}
 	
-	/*if (msg.content === ( p + "selftrigger" )) {
-		var textArray = [
-			'Fuck off',
-			'Fuck you',
-			'Shut up',
-			'Diam 7 pls',
-			'You are shit'
-		];
-		var Quote = Math.floor(Math.random() * textArray.length);
-		msg.reply(`${textArray[Quote]}`);
-	}*/
-	
 	if (msg.content === ( p + "randomsing" )) {
 		var songLyrics = [
 			'Havana oh nana, half of my heart is in havana na na na',
@@ -65,30 +53,10 @@ client.on('message', msg => {
 			'You just want attention, you dont want my heart',
 			'We were just kids when we fell , in, love',
 			'People fall in love in mysterious ways, maybe just the touch of a hand',
-			''
+			'你好吗,我会中文 Ching Chong'
 		];
 		var number = Math.floor(Math.random() * songLyrics.length);
 		msg.channel.sendMessage(`${songLyrics[number]}`);
-	}
-	
-	//Beta commands
-	if (msg.content.startsWith(p + "tag ")) {
-		msg.channel.sendMessage(`${msg.mentions.user.tag}`);
-	}
-	
-	if (msg.content.startsWith(p + "trigger ")) {
-		var textArray = [
-			'Fuck off',
-			'Fuck you',
-			'Shut up',
-			'Diam 7 pls',
-			'You are shit'
-		];
-		var Quote = Math.floor(Math.random() * textArray.length);
-		if ( msg.content.substr("trigger ".length + p.length) === "@Alleria#9496" )
-			msg.channel.sendMessage("You dont fuck with my owner");
-		else
-			msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
 	}
 	
 	if (msg.content === (p + "profile")) {
@@ -103,6 +71,30 @@ client.on('message', msg => {
 		.addBlankField(true);
 		msg.channel.send({embed});
 	}
+	
+	if (msg.content.startsWith(p + "trigger ")) {
+		var textArray = [
+			'Fuck off',
+			'Fuck you',
+			'Shut up',
+			'Diam 7 pls',
+			'You are shit',
+			'Your momma so fat, when Bounty Hunter cast Track on her, the team gained global vision',
+			'Hi bitch'
+		];
+		var Quote = Math.floor(Math.random() * textArray.length);
+		if ( msg.content.substr("trigger ".length + p.length) === "@Alleria#9496" )
+			msg.channel.sendMessage("You dont fuck with my owner");
+		else
+			msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
+	}
+	
+	//Beta commands
+	if (msg.content.startsWith(p + "tag ")) {
+		msg.channel.sendMessage(`${msg.mentions.users.tag}`);
+	}
+	
+
 });
 
 client.login(process.env.BOT_TOKEN);
