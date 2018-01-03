@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.5.4 - Im _still_ getting better");
+		msg.channel.sendMessage("Allerion version A.0.0.5.5 - Im _still_ getting better");
 		msg.channel.sendMessage("Embed is ongoing (as checkprofile), trigger is _still_ in process");
 	}
 
@@ -71,6 +71,9 @@ client.on('message', msg => {
 	}
 	
 	//Beta commands
+	if (msg.content === (p + "test")) {
+		msg.channel.sendMessage("${msg.author.username} and ${msg.author.avatarURL}");
+	}
 	if (msg.content === (p + "tag")) {
 		let member = msg.mentions.members.first();
 		msg.channel.sendMessage(member.user.tag);
@@ -91,7 +94,7 @@ client.on('message', msg => {
 	
 	if (msg.content === (p + "checkprofile")) {
 		let embed = new Discord.RichEmbed()
-		.setAuthor(msg.author.username, msg.author.avatarURL)
+		.setAuthor(msg.author.username, "${msg.author.avatarURL}")
 		.addField("field", "text below field")
 		.setFooter("Im-a-footer")
 		.setTimestamp()
