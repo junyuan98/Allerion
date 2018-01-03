@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.5.8 - Im _still_ getting better");
+		msg.channel.sendMessage("Allerion version A.0.0.5.9 - Im _still_ getting better");
 		msg.channel.sendMessage("Checkprofile is added, trigger is _still_ in process");
 	}
 
@@ -95,8 +95,9 @@ client.on('message', msg => {
 	if (msg.content === (p + "checkprofile")) {
 		let embed = new Discord.RichEmbed()
 		.setAuthor(msg.author.username , msg.author.avatarURL)
+		.setThumbnail(msg.author.avatarURL)
 		.addField("User", "text below field")
-		.addField("UserID", "text below field2")
+		.addField("UserID", msg.author.userid)
 		.setTimestamp()
 		.setColor("#b200ff")
 		.addBlankField(true);
