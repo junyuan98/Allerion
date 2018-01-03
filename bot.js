@@ -16,8 +16,8 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.6.5 - Check-mate");
-		msg.channel.sendMessage("commands with check are unchecked");
+		msg.channel.sendMessage("Allerion version A.0.0.7.0 - Triggerino");
+		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
 	if (msg.content === ( p + "help" )) {
@@ -43,7 +43,7 @@ client.on('message', msg => {
 		}
 	}
 	
-	if (msg.content === ( p + "selftrigger" )) {
+	/*if (msg.content === ( p + "selftrigger" )) {
 		var textArray = [
 			'Fuck off',
 			'Fuck you',
@@ -53,7 +53,7 @@ client.on('message', msg => {
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
 		msg.reply(`${textArray[Quote]}`);
-	}
+	}*/
 	
 	if (msg.content === ( p + "randomsing" )) {
 		var songLyrics = [
@@ -73,12 +73,10 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content.startsWith(p + "tag ")) {
-		let member = msg.mentions.members.first();
-		msg.channel.sendMessage(`${member.user.tag}`);
+		msg.channel.sendMessage(`${msg.mentions.user.tag}`);
 	}
 	
 	if (msg.content.startsWith(p + "trigger ")) {
-		let member = msg.mentions.members.first();
 		var textArray = [
 			'Fuck off',
 			'Fuck you',
@@ -87,7 +85,7 @@ client.on('message', msg => {
 			'You are shit'
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		msg.channel.sendMessage(member);
+		msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
 	}
 	
 	if (msg.content === (p + "profile")) {
