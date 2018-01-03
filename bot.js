@@ -15,17 +15,17 @@ const p = "a!";
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	
-	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.5.12 - Im _still_ getting better");
-		msg.channel.sendMessage("Checkprofile is added, trigger is _still_ in process");
+	if (msg.content === ( p + "version" )) {
+		msg.channel.sendMessage("Allerion version A.0.0.6.0 - Check-mate");
+		msg.channel.sendMessage("commands with check are unchecked");
 	}
 
 	if (msg.content === ( p + "help" )) {
 		msg.channel.sendMessage("My prefix is a! and my available commands are:");
-		msg.channel.sendMessage("checkversion, checkprofile, checkavatar, random, selftrigger, randomsing, ping.");
+		msg.channel.sendMessage("version, profile, avatar, random, selftrigger, randomsing, ping.");
 	}
 	
-	if (msg.content === (p + "checkavatar")) {
+	if (msg.content === (p + "avatar")) {
 		msg.reply(msg.author.avatarURL);
 	}
 	
@@ -74,7 +74,8 @@ client.on('message', msg => {
 	if (msg.content === (p + "test")) {
 		msg.channel.sendMessage(msg.author.user);
 	}
-	if (msg.content === (p + "tag")) {
+	
+	if (msg.content === (p + "tag ")) {
 		let member = msg.mentions.members.first();
 		msg.channel.sendMessage(`${member.id}`);
 	}
@@ -92,7 +93,7 @@ client.on('message', msg => {
 		msg.channel.sendMessage(member);
 	}
 	
-	if (msg.content === (p + "checkprofile")) {
+	if (msg.content === (p + "profile")) {
 		let embed = new Discord.RichEmbed()
 		.setAuthor(msg.author.username , msg.author.avatarURL)
 		.setThumbnail(msg.author.avatarURL)
