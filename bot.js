@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.6.0 - Check-mate");
+		msg.channel.sendMessage("Allerion version A.0.0.6.1 - Check-mate");
 		msg.channel.sendMessage("commands with check are unchecked");
 	}
 
@@ -72,7 +72,7 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content === (p + "test")) {
-		msg.channel.sendMessage(msg.author.user);
+		msg.channel.sendMessage(msg.author.id);
 	}
 	
 	if (msg.content === (p + "tag ")) {
@@ -97,8 +97,8 @@ client.on('message', msg => {
 		let embed = new Discord.RichEmbed()
 		.setAuthor(msg.author.username , msg.author.avatarURL)
 		.setThumbnail(msg.author.avatarURL)
-		.addField("User", "text below field")
 		.addField("UserID", `${msg.author.id}`)
+		.addField("Suggest what is this pls", "This too")
 		.setTimestamp()
 		.setColor("#b200ff")
 		.addBlankField(true);
