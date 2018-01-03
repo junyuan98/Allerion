@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.5.11 - Im _still_ getting better");
+		msg.channel.sendMessage("Allerion version A.0.0.5.12 - Im _still_ getting better");
 		msg.channel.sendMessage("Checkprofile is added, trigger is _still_ in process");
 	}
 
@@ -76,7 +76,7 @@ client.on('message', msg => {
 	}
 	if (msg.content === (p + "tag")) {
 		let member = msg.mentions.members.first();
-		msg.channel.sendMessage(member.id);
+		msg.channel.sendMessage(`${member.id}`);
 	}
 	
 	if (msg.content.startsWith(p + "trigger ")) {
