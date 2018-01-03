@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.7.12 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.13 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -29,7 +29,6 @@ client.on('message', msg => {
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
 		.addField("Commands", "version\nprofile\navatar\nrandom\ntrigger\nrandomsing\nping", true)
-		.addField("Function", "checks version\nshows your profile\nshows your avatar\ninput a max number and randoms\ntag people and have fun\nsing a long\nplays ping pong",true)
 		.setFooter("Allerion")
 		.setTimestamp()
 		.setColor("#000000")
@@ -95,7 +94,7 @@ client.on('message', msg => {
 			'Hi bitch'
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		if ( msg.content.substr("trigger ".length + p.length) === "@Allerino" )
+		if ( msg.content.substr("trigger ".length + p.length) === "<@331053004910362624>" )
 			msg.channel.sendMessage("Fuck you bitch, you dont mess with my owner");
 		else
 			msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
@@ -103,11 +102,12 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content === ( p + "test " )) {
+		msg.channel.sendMessage(msg.author.id);
 		msg.channel.sendMessage("<@" + msg.author.id +">");
 	}
 	
 	if (msg.content.startsWith(p + "tag ")) {
-		if ( msg.content.substr("tag ".length + p.length) === "@Alleria#9496 " )
+		if ( msg.content.substr("tag ".length + p.length) === "<@331053004910362624>" )
 			msg.channel.sendMessage("Secret code success");
 		else
 			msg.channel.sendMessage("Wrong");
