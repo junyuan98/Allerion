@@ -102,6 +102,10 @@ client.on('message', msg => {
 	}
 	
 	//Beta commands
+	if (msg.content === ( p + "test " )) {
+		msg.channel.sendMessage("<@" + msg.author.id +">");
+	}
+	
 	if (msg.content.startsWith(p + "tag ")) {
 		if ( msg.content.substr("tag ".length + p.length) === "@Alleria#9496 " )
 			msg.channel.sendMessage("Secret code success");
