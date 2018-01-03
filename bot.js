@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setPresence({ game: { name: 'Alpha 0.0.4.1', type: 0 } });
+	client.user.setPresence({ game: { name: 'Alpha 0.0.5.0', type: 0 } });
 });
 
 function randomnumber(y){
@@ -16,13 +16,13 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.4.1 - Its getting better");
-		msg.channel.sendMessage("random is back, tag in beta");
+		msg.channel.sendMessage("Allerion version A.0.0.5.0 - Im still getting better");
+		msg.channel.sendMessage("Embed is ongoing, trigger is _still_ in process");
 	}
 
 	if (msg.content === ( p + "help" )) {
 		msg.channel.sendMessage("My prefix is a! and my available commands are:");
-		msg.channel.sendMessage("checkversion, checkavatar, random, selftrigger, tag, randomsing, ping.");
+		msg.channel.sendMessage("checkversion, checkavatar, random, selftrigger, trigger, randomsing, ping.");
 	}
 	
 	if (msg.content === (p + "checkavatar")) {
@@ -38,6 +38,16 @@ client.on('message', msg => {
 		msg.channel.sendMessage(`${member.user.tag}`);
 	}
 	
+	if (msg.content === (p + "checkprofile")) {
+		let embed = new Discord.RichEmbed()
+		.setAuthor(msg.author.username, msg.author.avatarURL)
+		.addField("field", "text below field")
+		.setFooter("Im-a-footer")
+		.setTimestamp()
+		.setColor("#b200ff")
+		.addBlankField(true)
+		msg.channel.sendMessage(embed);
+	}
 	
 	if (msg.content.startsWith(p + "random ")) {
 		var y = parseInt(msg.content.substr("random ".length + p.length), 10);
