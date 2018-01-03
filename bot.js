@@ -15,8 +15,8 @@ const p = "a!";
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	
-	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.7.7 - Triggerino");
+	if (msg.content === ( p + "version" )) { 
+		msg.channel.sendMessage("Allerion version A.0.0.7.8 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -25,7 +25,7 @@ client.on('message', msg => {
 	}
 	
 	if (msg.content === (p + "newhelp")) {
-		let botembed = new Discord.RichEmbed()
+		let embed = new Discord.RichEmbed()
 		.setAuthor("Allerion" , "https://bestsecuritysearch.com/wp-content/uploads/2016/10/discord-logo-bss.png")
 		.addField("Commands", "version\nprofile\navatar\nrandom\ntrigger\nrandomsing\nping", true)
 		.addField("Function", "None for now",true)
@@ -33,7 +33,7 @@ client.on('message', msg => {
 		.setTimestamp()
 		.setColor("#000000")
 		.addBlankField(true);
-		msg.channel.send({botembed});
+		msg.channel.send({embed});
 	}
 		
 	if (msg.content === (p + "avatar")) {
@@ -104,11 +104,13 @@ client.on('message', msg => {
 	if (msg.content.startsWith(p + "tag ")) {
 		if ( msg.content.substr("trigger ".length + p.length) === "@Allerino" )
 			msg.channel.sendMessage("Secret code");
+		else
+			msg.channel.sendMessage("Wrong");
 		msg.channel.sendMessage(`${msg.mentions.users.tag}`);
 	}
 	
 	if (msg.content === ( p + "botavatar" )) {
-		msg.channel.sendMessage(client.avatarURL);
+		msg.channel.sendMessage(client.user.avatarURL);
 	}
 
 });
