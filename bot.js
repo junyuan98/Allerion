@@ -96,7 +96,7 @@ client.on('message', msg => {
 		.setFooter("Im-a-footer")
 		.setTimestamp()
 		.setColor("#b200ff")
-		.addBlankField(true)
+		.addBlankField(true);
 		msg.channel.send(embed);
 	}
 });
