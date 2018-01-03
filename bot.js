@@ -96,9 +96,9 @@ client.on('message', msg => {
 	
 	if (msg.content === (p + "profile")) {
 		let embed = new Discord.RichEmbed()
-		.setAuthor(msg.author.username , msg.author.avatarURL)
+		.setAuthor(msg.author.nickname , msg.author.avatarURL)
 		.setThumbnail(msg.author.avatarURL)
-		.addField("Real identity", `${msg.author.tag}`)
+		.addField("Username", `${msg.author.tag}`)
 		.addField("UserID", `${msg.author.id}`)
 		.addField("Join server date", "Long long ago(_i guess_)")
 		.setTimestamp()
