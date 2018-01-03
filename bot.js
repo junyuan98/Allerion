@@ -73,7 +73,7 @@ client.on('message', msg => {
 	//Beta commands
 	if (msg.content === (p + "test")) {
 		msg.channel.sendMessage(msg.author.id);
-		msg.channel.sendMessage("@<" + msg.author.tag + ">");
+		msg.channel.sendMessage("@" + msg.author.tag);
 	}
 	
 	if (msg.content.startsWith(p + "tag ")) {
