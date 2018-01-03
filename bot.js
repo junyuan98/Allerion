@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.7.8 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.9 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -26,9 +26,10 @@ client.on('message', msg => {
 	
 	if (msg.content === (p + "newhelp")) {
 		let embed = new Discord.RichEmbed()
-		.setAuthor("Allerion" , "https://bestsecuritysearch.com/wp-content/uploads/2016/10/discord-logo-bss.png")
+		.setAuthor("Allerion" , client.user.avatarURL)
+		.setThumbnail(client.user.avatarURL)
 		.addField("Commands", "version\nprofile\navatar\nrandom\ntrigger\nrandomsing\nping", true)
-		.addField("Function", "None for now",true)
+		.addField("Function", "checks version\nshows your profile\nshows your avatar\ninput a max number and randoms\ntag people and have fun\nsing a long\nplays ping pong",true)
 		.setFooter("Allerion")
 		.setTimestamp()
 		.setColor("#000000")
@@ -102,17 +103,13 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content.startsWith(p + "tag ")) {
-		if ( msg.content.substr("trigger ".length + p.length) === "@Allerino" )
+		msg.channel.sendMessage(`${msg.mentions.users.tag}`);
+		if ( msg.content.substr("trigger ".length + p.length) === "@Alleria#9496" )
 			msg.channel.sendMessage("Secret code");
 		else
 			msg.channel.sendMessage("Wrong");
-		msg.channel.sendMessage(`${msg.mentions.users.tag}`);
 	}
 	
-	if (msg.content === ( p + "botavatar" )) {
-		msg.channel.sendMessage(client.user.avatarURL);
-	}
-
 });
 
 client.login(process.env.BOT_TOKEN);
