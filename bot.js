@@ -16,15 +16,27 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.7.3 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.4 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
 	if (msg.content === ( p + "help" )) {
-		msg.channel.sendMessage("My prefix is a! and my available commands are:");
-		msg.channel.sendMessage("version, profile, avatar, random, trigger, randomsing, ping.");
+		msg.channel.sendMessage("My prefix is a! and my available commands are:\nversion, profile, avatar, random, trigger, randomsing, ping.");
 	}
 	
+	if (msg.content === (p + "newhelp")) {
+		let botembed = new Discord.RichEmbed()
+		.setAuthor("Allerion" , client.user.avatarURL)
+		.setThumbnail(client.user.avatarURL)
+		.addField("Commands", "version\nprofile\navatar\nrandom\ntrigger\nrandomsing\nping")
+		.addField("Function", "None for now")
+		.setFooter("Allerion")
+		.setTimestamp()
+		.setColor("#000000")
+		.addBlankField(true);
+		msg.channel.send({botembed});
+	}
+		
 	if (msg.content === (p + "avatar")) {
 		msg.reply(msg.author.avatarURL);
 	}
