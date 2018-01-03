@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setPresence({ game: { name: 'Alpha 0.0.5.0', type: 0 } });
+	client.user.setPresence({ game: { name: 'Alpha 0.0.5.2', type: 0 } });
 });
 
 function randomnumber(y){
@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.5.1 - Im still getting better");
+		msg.channel.sendMessage("Allerion version A.0.0.5.2 - Im still getting better");
 		msg.channel.sendMessage("Embed is ongoing (as checkprofile), trigger is _still_ in process");
 	}
 
@@ -97,7 +97,7 @@ client.on('message', msg => {
 		.setTimestamp()
 		.setColor("#b200ff")
 		.addBlankField(true)
-		msg.channel.sendMessage(embed);
+		msg.channel.send(embed);
 	}
 });
 
