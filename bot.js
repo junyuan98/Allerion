@@ -102,7 +102,7 @@ client.on('message', msg => {
 	//Beta commands
 	if (msg.content === ( p + "test" )) {
 		var x = client.users.get('a user id');
-		msg.channel.sendMessage( x );
+		msg.channel.sendMessage( `${x}` );
 	}
 	
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
