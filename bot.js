@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.7.0 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.1 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -85,7 +85,10 @@ client.on('message', msg => {
 			'You are shit'
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
+		if ( msg.content.substr("trigger ".length + p.length) === "@Alleria#9496" )
+			msg.channel.sendMessage("You dont fuck with my owner");
+		else
+			msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
 	}
 	
 	if (msg.content === (p + "profile")) {
