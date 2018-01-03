@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setPresence({ game: { name: 'Alpha 0.0.4.0', type: 0 } });
+	client.user.setPresence({ game: { name: 'Alpha 0.0.4.1', type: 0 } });
 });
 
 function randomnumber(y){
@@ -16,13 +16,13 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.4.0 - Its getting better");
-		msg.channel.sendMessage("random and tag in beta,trigger removed");
+		msg.channel.sendMessage("Allerion version A.0.0.4.1 - Its getting better");
+		msg.channel.sendMessage("random is back, tag in beta");
 	}
 
 	if (msg.content === ( p + "help" )) {
 		msg.channel.sendMessage("My prefix is a! and my available commands are:");
-		msg.channel.sendMessage("checkversion, checkavatar, selftrigger, tag, randomsing, ping.");
+		msg.channel.sendMessage("checkversion, checkavatar, random, selftrigger, tag, randomsing, ping.");
 	}
 	
 	if (msg.content === (p + "checkavatar")) {
