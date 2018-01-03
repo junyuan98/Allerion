@@ -16,13 +16,13 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.5.0 - Im still getting better");
-		msg.channel.sendMessage("Embed is ongoing, trigger is _still_ in process");
+		msg.channel.sendMessage("Allerion version A.0.0.5.1 - Im still getting better");
+		msg.channel.sendMessage("Embed is ongoing (as checkprofile), trigger is _still_ in process");
 	}
 
 	if (msg.content === ( p + "help" )) {
 		msg.channel.sendMessage("My prefix is a! and my available commands are:");
-		msg.channel.sendMessage("checkversion, checkavatar, random, selftrigger, trigger, randomsing, ping.");
+		msg.channel.sendMessage("checkversion, checkprofile, checkavatar, random, selftrigger, randomsing, ping.");
 	}
 	
 	if (msg.content === (p + "checkavatar")) {
@@ -31,22 +31,6 @@ client.on('message', msg => {
 	
 	if (msg.content === ( p + "ping" )) {
 		msg.channel.sendMessage( msg.author + ", Pong! My ping is " + client.ping + "ms." );
-	}
-	
-	if (msg.content === (p + "tag")) {
-		let member = msg.mentions.members.first();
-		msg.channel.sendMessage(`${member.user.tag}`);
-	}
-	
-	if (msg.content === (p + "checkprofile")) {
-		let embed = new Discord.RichEmbed()
-		.setAuthor(msg.author.username, msg.author.avatarURL)
-		.addField("field", "text below field")
-		.setFooter("Im-a-footer")
-		.setTimestamp()
-		.setColor("#b200ff")
-		.addBlankField(true)
-		msg.channel.sendMessage(embed);
 	}
 	
 	if (msg.content.startsWith(p + "random ")) {
@@ -71,6 +55,27 @@ client.on('message', msg => {
 		msg.reply(`${textArray[Quote]}`);
 	}
 	
+	if (msg.content === ( p + "randomsing" )) {
+		var songLyrics = [
+			'Havana oh nana, half of my heart is in havana na na na',
+			'Is it too late now to say sorry',
+			'2+2 IS 4, MINUS 1 THATS 3 QUICK MATHS',
+			'BOOM BOOM POW GONNA GET GET',
+			'Despacito, nlskdnflkjkljfklsrfkljdlk burito',
+			'You just want attention, you dont want my heart',
+			'We were just kids when we fell , in, love',
+			'People fall in love in mysterious ways, maybe just the touch of a hand',
+		];
+		var number = Math.floor(Math.random() * songLyrics.length);
+		msg.channel.sendMessage(`${songLyrics[number]}`);
+	}
+	
+	//Beta commands
+	if (msg.content === (p + "tag")) {
+		let member = msg.mentions.members.first();
+		msg.channel.sendMessage(`${member.user.tag}`);
+	}
+	
 	if (msg.content.startsWith(p + "trigger ")) {
 		let member = msg.mentions.members.first();
 		var textArray = [
@@ -84,20 +89,16 @@ client.on('message', msg => {
 		msg.channel.sendMessage(member);
 	}
 	
-	if (msg.content === ( p + "randomsing" )) {
-		var songLyrics = [
-			'Havana oh nana, half of my heart is in havana na na na',
-			'Is it too late now to say sorry',
-			'2+2 IS 4, MINUS 1 THATS 3 QUICK MATHS',
-			'BOOM BOOM POW GONNA GET GET',
-			'Despacito, nlskdnflkjkljfklsrfkljdlk burito',
-			'You just want attention, you dont want my heart',
-			'We were just kids when we fell , in, love',
-		];
-		var number = Math.floor(Math.random() * songLyrics.length);
-		msg.channel.sendMessage(`${songLyrics[number]}`);
+	if (msg.content === (p + "checkprofile")) {
+		let embed = new Discord.RichEmbed()
+		.setAuthor(msg.author.username, msg.author.avatarURL)
+		.addField("field", "text below field")
+		.setFooter("Im-a-footer")
+		.setTimestamp()
+		.setColor("#b200ff")
+		.addBlankField(true)
+		msg.channel.sendMessage(embed);
 	}
-	
 });
 
 client.login(process.env.BOT_TOKEN);
