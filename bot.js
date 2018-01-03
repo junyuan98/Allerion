@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.6.1 - Check-mate");
+		msg.channel.sendMessage("Allerion version A.0.0.6.2 - Check-mate");
 		msg.channel.sendMessage("commands with check are unchecked");
 	}
 
@@ -64,7 +64,7 @@ client.on('message', msg => {
 			'Despacito, nlskdnflkjkljfklsrfkljdlk burito',
 			'You just want attention, you dont want my heart',
 			'We were just kids when we fell , in, love',
-			'People fall in love in mysterious ways, maybe just the touch of a hand',
+			'People fall in love in mysterious ways, maybe just the touch of a hand'
 		];
 		var number = Math.floor(Math.random() * songLyrics.length);
 		msg.channel.sendMessage(`${songLyrics[number]}`);
@@ -73,11 +73,12 @@ client.on('message', msg => {
 	//Beta commands
 	if (msg.content === (p + "test")) {
 		msg.channel.sendMessage(msg.author.id);
+		msg.channel.sendMessage("@<" + msg.author.id + ">");
 	}
 	
-	if (msg.content === (p + "tag ")) {
+	if (msg.content.startsWith(p + "tag ")) {
 		let member = msg.mentions.members.first();
-		msg.channel.sendMessage(`${member.id}`);
+		msg.channel.sendMessage(member);
 	}
 	
 	if (msg.content.startsWith(p + "trigger ")) {
