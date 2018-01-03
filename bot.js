@@ -26,7 +26,7 @@ client.on('message', msg => {
 	
 	if (msg.content === (p + "newhelp")) {
 		let embed = new Discord.RichEmbed()
-		.setAuthor("Allerion" , client.user.avatarURL)
+		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
 		.addField("Commands", "version\nprofile\navatar\nrandom\ntrigger\nrandomsing\nping", true)
 		.addField("Function", "checks version\nshows your profile\nshows your avatar\ninput a max number and randoms\ntag people and have fun\nsing a long\nplays ping pong",true)
@@ -103,8 +103,9 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content.startsWith(p + "tag ")) {
-		msg.channel.sendMessage(`${msg.mentions.users.tag}`);
-		if ( msg.content.substr("trigger ".length + p.length) === "@Alleria#9496" )
+		let member = msg.mentions.users.first();
+		msg.channel.sendMessage(`${msg.target.tag}`);
+		if ( msg.content.substr("tag ".length + p.length) === "@Alleria#9496" )
 			msg.channel.sendMessage("Secret code");
 		else
 			msg.channel.sendMessage("Wrong");
