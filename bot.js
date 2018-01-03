@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.5.5 - Im _still_ getting better");
+		msg.channel.sendMessage("Allerion version A.0.0.5.6 - Im _still_ getting better");
 		msg.channel.sendMessage("Embed is ongoing (as checkprofile), trigger is _still_ in process");
 	}
 
