@@ -16,8 +16,8 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.8.1 - A Help in hand");
-		msg.channel.sendMessage("Help appearance has been updated");
+		msg.channel.sendMessage("Allerion version A.0.0.8.2 - A Help in hand");
+		msg.channel.sendMessage("```Help appearance has been updated```");
 	}
 	
 	if (msg.content === (p + "help")) {
@@ -73,10 +73,7 @@ client.on('message', msg => {
 			'Hi bitch'
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		if ( msg.content.substr("trigger ".length + p.length) === "<@!331053004910362624>" )
-			msg.channel.sendMessage("Fuck you bitch, you dont mess with my owner");
-		else
-			msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
+		msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
 	}
 	
 	if (msg.content === (p + "greetings")) {
@@ -104,8 +101,8 @@ client.on('message', msg => {
 
 	//Beta commands
 	if (msg.content === ( p + "test" )) {
-		let target = msg.mentions.users.first();
-		msg.channel.sendMessage(target + " hi");
+		var x = client.users.get('a user id');
+		msg.channel.sendMessage( x );
 	}
 	
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
