@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.7.16 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.18 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -94,7 +94,7 @@ client.on('message', msg => {
 			'Hi bitch'
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
-		if ( msg.content.substr("trigger ".length + p.length) === "<@331053004910362624>" )
+		if ( msg.content.substr("trigger ".length + p.length) === "<@!331053004910362624>" )
 			msg.channel.sendMessage("Fuck you bitch, you dont mess with my owner");
 		else
 			msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
@@ -102,14 +102,14 @@ client.on('message', msg => {
 	
 	//Beta commands
 	if (msg.content === ( p + "test" )) {
-		msg.channel.sendMessage(msg.author.id);
 		msg.channel.sendMessage("<@" + msg.author.id +">");
 	}
 	
 	if (msg.content.startsWith(p + "tag ")) {
-		let target = msg.mentions.users();
-		msg.channel.sendMessage(`${target.id}` + "1");
-		msg.channel.sendMessage(`${msg.target.id}` + "2");
+		if ( msg.content.substr("tag ".length + p.length) === "<@!331053004910362624>" )
+			msg.channel.sendMessage("Secret code success");
+		else 
+			msg.channel.sendMessage("wrong");
 	}
 	
 });
