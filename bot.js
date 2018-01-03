@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const p = "a!";
+var ALLERIA = "331053004910362624";
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
@@ -10,13 +12,11 @@ function randomnumber(y){
 	return [Math.floor(Math.random() * y + 1)];
 };
 
-const p = "a!";
-
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.7.24 - Triggerino");
+		msg.channel.sendMessage("Allerion version A.0.0.7.26 - Triggerino");
 		msg.channel.sendMessage("Trigger is in beta, selftrigger is removed (unless u all want it back) ");
 	}
 
@@ -98,6 +98,13 @@ client.on('message', msg => {
 			msg.channel.sendMessage("Fuck you bitch, you dont mess with my owner");
 		else
 			msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
+	}
+	
+	if (msg.content === (p + "greetings")) {
+		if (msg.author.id === ALLERIA)
+			msg.channel.sendMessage("Greetings owner <3 Have a nice day~");
+		else
+			msg.channel.sendMessage("Greetings Earthling " + msg.author.id + ", you are OP");
 	}
 	
 	//Beta commands
