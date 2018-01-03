@@ -100,7 +100,7 @@ client.on('message', msg => {
 		.setTimestamp()
 		.setColor("#b200ff")
 		.addBlankField(true);
-		msg.channel.sendMessage(embed);
+		msg.channel.sendMessage({embed});
 	}
 });
 
