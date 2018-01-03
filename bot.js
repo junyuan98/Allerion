@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setGame(`on Alpha testing`);
+	client.user.setPresence({ game: { name: 'on Alpha phase testing', type: 0 } });
 });
 
 function randomnumber(){
@@ -16,13 +16,13 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "checkversion" )) {
-		msg.channel.sendMessage("Allerion version 0.0.3.4 - Recovery from dead");
-		msg.channel.sendMessage("sing changed to randomsing, trigger in beta");
+		msg.channel.sendMessage("Allerion version 0.0.3.5 - Recovery from dead");
+		msg.channel.sendMessage("random and tag in beta,trigger removed");
 	}
 
 	if (msg.content === ( p + "help" )) {
 		msg.channel.sendMessage("My prefix is a! and my available commands are:");
-		msg.channel.sendMessage("checkversion, checkavatar, random, selftrigger, trigger, randomsing, ping.");
+		msg.channel.sendMessage("checkversion, checkavatar, selftrigger, tag, randomsing, ping.");
 	}
 	
 	if (msg.content === (p + "checkavatar")) {
@@ -39,8 +39,9 @@ client.on('message', msg => {
 	}
 	
 	
-	if (msg.content === (p + "random")) {
+	if (msg.content.startsWith(p + "random ")) {
 		var x = randomnumber();
+		msg.channel.sendMessage("The suffix is " + msg.content.substr("random ".length + p.length) + "! ");
 		msg.channel.sendMessage("You have randomed " + x );
 	}
 	
