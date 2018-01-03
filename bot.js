@@ -73,7 +73,7 @@ client.on('message', msg => {
 	//Beta commands
 	if (msg.content === (p + "tag")) {
 		let member = msg.mentions.members.first();
-		msg.channel.sendMessage(`${member.user.tag}`);
+		msg.channel.sendMessage(member.user.tag);
 	}
 	
 	if (msg.content.startsWith(p + "trigger ")) {
