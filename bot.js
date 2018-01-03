@@ -107,7 +107,7 @@ client.on('message', msg => {
 	}
 	
 	if (msg.content.startsWith(p + "tag ")) {
-		let target = msg.mentions.users.first();
+		let target = msg.mentions.users();
 		msg.channel.sendMessage(`${target.id}` + "1");
 		msg.channel.sendMessage(`${msg.target.id}` + "2");
 	}
