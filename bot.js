@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setPresence({ game: { name: 'Alpha 0.0.5.2', type: 0 } });
+	client.user.setPresence({ game: { name: 'Alpha Testing', type: 0 } });
 });
 
 function randomnumber(y){
