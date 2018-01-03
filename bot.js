@@ -95,7 +95,7 @@ client.on('message', msg => {
 		];
 		var Quote = Math.floor(Math.random() * textArray.length);
 		if ( msg.content.substr("trigger ".length + p.length) === "@Allerino" )
-			msg.channel.sendMessage("You dont fuck with my owner");
+			msg.channel.sendMessage("Fuck you bitch, you dont mess with my owner");
 		else
 			msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
 	}
