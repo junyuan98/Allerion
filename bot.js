@@ -41,7 +41,7 @@ client.on('message', msg => {
 	
 	if (msg.content.startsWith(p + "random ")) {
 		var y = parseInt(msg.content.substr("random ".length + p.length), 10);
-		if ( y === NaN )
+		if ( isNaN(y) === true )
 			msg.channel.sendMessage("Please enter a valid number");
 		else {
 			var x = randomnumber(y);
