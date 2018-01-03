@@ -16,7 +16,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	
 	if (msg.content === ( p + "version" )) {
-		msg.channel.sendMessage("Allerion version A.0.0.6.3 - Check-mate");
+		msg.channel.sendMessage("Allerion version A.0.0.6.4 - Check-mate");
 		msg.channel.sendMessage("commands with check are unchecked");
 	}
 
@@ -73,13 +73,12 @@ client.on('message', msg => {
 	//Beta commands
 	if (msg.content === (p + "test")) {
 		msg.channel.sendMessage(msg.author.id);
-		msg.channel.sendMessage("@<" + msg.author.id + ">");
-		msg.channel.sendMessage(msg.author.tag);
+		msg.channel.sendMessage("@<" + msg.author.tag + ">");
 	}
 	
 	if (msg.content.startsWith(p + "tag ")) {
 		let member = msg.mentions.members.first();
-		msg.channel.sendMessage(member.tag);
+		msg.channel.sendMessage(`${member.user.tag}`);
 	}
 	
 	if (msg.content.startsWith(p + "trigger ")) {
@@ -99,8 +98,9 @@ client.on('message', msg => {
 		let embed = new Discord.RichEmbed()
 		.setAuthor(msg.author.username , msg.author.avatarURL)
 		.setThumbnail(msg.author.avatarURL)
+		.addField("Real identity", `${msg.author.tag}`)
 		.addField("UserID", `${msg.author.id}`)
-		.addField("Suggest what is this pls", "This too")
+		.addField("Join server date", "Long long ago(_i guess_)")
 		.setTimestamp()
 		.setColor("#b200ff")
 		.addBlankField(true);
