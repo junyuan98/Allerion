@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const sql = require("sqlite");
+sql.open("./score.sqlite");
 const p = "a!";
 var ALLERIA = "331053004910362624";
 
@@ -14,10 +16,12 @@ function randomnumber(y){
 
 client.on('message', msg => {
 	if (msg.author.bot) return;
+	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.8.4 - A Help in hand");
-		msg.channel.sendMessage("```Help appearance has been updated```");
+		msg.channel.sendMessage("Allerion version A.0.1.0.0 - The Greatness of Levels");
+		msg.channel.sendMessage("```LEVELS ARE IN PROGRESS AND ARE HIGHLY UNSTABLE```");
+		msg.channel.sendMessage("```TYPE MORE TO LEVEL UP (**NOT SPAM**)```");
 	}
 	
 	if (msg.content === (p + "help")) {
@@ -25,6 +29,7 @@ client.on('message', msg => {
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
 		.addField("**Commands**", "**ping**\n**avatar**\n**random**\n**version**\n**profile**\n**trigger**\n**greetings**\n**randomsing**")
+		.addField("**Character**","**level**\n**points**")
 		.setFooter("Allerion")
 		.setTimestamp()
 		.setColor("#000000")
@@ -115,9 +120,49 @@ client.on('message', msg => {
 		msg.channel.sendMessage(target);
 		target;
 	}
-	
+
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
-	
 });
+
+sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
+	if (!row) {
+		sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
+	} 
+	else {
+		let curLevel = Math.floor(0.1 * Math.sqrt(row.points + 1));
+		if (curLevel > row.level) {
+			row.level = curLevel;
+			sql.run(`UPDATE scores SET points = ${row.points + 1}, level = ${row.level} WHERE userId = ${message.author.id}`);
+			message.reply(`You've leveled up to level **${curLevel}**! Road to God is real?`);
+      }
+      sql.run(`UPDATE scores SET points = ${row.points + 1} WHERE userId = ${message.author.id}`);
+	}
+     }).catch(() => {
+	console.error;
+	sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, level INTEGER)").then(() => {
+		sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
+	}); 
+     });
+
+if (!message.content.startsWith(p)) return;
+
+if (message.content.startsWith(p + "level")) {
+	sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
+		if (!row) return message.reply("Your current level is 0");
+		message.reply(`Your current level is ${row.level}`);
+	});
+} 
+else if (message.content.startsWith(p + "points")) {
+	sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
+		if (!row) return message.reply("sadly you do not have any points yet!");
+		message.reply(`you currently have ${row.points} points, good going!`);
+	});
+}
+});
+
+
+
+
+
 
 client.login(process.env.BOT_TOKEN);
