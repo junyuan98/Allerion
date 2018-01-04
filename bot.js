@@ -19,7 +19,7 @@ client.on('message', msg => {
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.9.0 - Nothing much new but i forgot the name of 0.0.8");
+		msg.channel.sendMessage("Allerion version A.0.0.9.1 - Nothing much new but i forgot the name of 0.0.8");
 		msg.channel.sendMessage("```LEVELS ARE IN PROGRESS```");
 	}
 	
