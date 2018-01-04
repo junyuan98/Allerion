@@ -13,7 +13,7 @@ function randomnumber(y){
 	return [Math.floor(Math.random() * y + 1)];
 };
 
-let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
+let points = JSON.parse(fs.readFileSync("points.json", "utf8"));
 
 client.on('message', msg => {
 	if (msg.author.bot) return;
@@ -142,7 +142,7 @@ client.on('message', msg => {
 	if (msg.content.startsWith(p + "level")) {
 		msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
 	}
-	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+	fs.writeFile("points.json", JSON.stringify(points), (err) => {
 		if (err) console.error(err)
 	});
 });
