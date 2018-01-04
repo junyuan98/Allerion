@@ -122,47 +122,42 @@ client.on('message', msg => {
 	}
 
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
-});
+	
+	
+	
+	sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
+		if (!row) {
+			sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [msg.author.id, 1, 0]);
+		} 
+		else {
+			let curLevel = Math.floor(Math.sqrt(row.points + 1));
+			if (curLevel > row.level) {
+				row.level = curLevel;
+				sql.run(`UPDATE scores SET points = ${row.points + 1}, level = ${row.level} WHERE userId = ${msg.author.id}`);
+				msg.reply(`You've leveled up to level **${curLevel}**! Road to god is real?`);
+			}
+			sql.run(`UPDATE scores SET points = ${row.points + 1} WHERE userId = ${msg.author.id}`);
+		}
+	}).catch(() => {
+		console.error;
+		sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, level INTEGER)").then(() => {
+			sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [msg.author.id, 1, 0]);
+		});
+	});
 
-sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-	if (!row) {
-		sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
-	} 
-	else {
-		let curLevel = Math.floor(0.1 * Math.sqrt(row.points + 1));
-		if (curLevel > row.level) {
-			row.level = curLevel;
-			sql.run(`UPDATE scores SET points = ${row.points + 1}, level = ${row.level} WHERE userId = ${message.author.id}`);
-			message.reply(`You've leveled up to level **${curLevel}**! Road to God is real?`);
-      }
-      sql.run(`UPDATE scores SET points = ${row.points + 1} WHERE userId = ${message.author.id}`);
+	if (!msg.content.startsWith(p)) return;
+
+	if (msg.content.startsWith(p + "level")) {
+		sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
+			if (!row) return msg.reply("Your current level is 0");
+			msg.reply(`Your current level is ${row.level}`);
+		});
+	} else if (msg.content.startsWith(p + "points")) {
+		sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
+			if (!row) return msg.reply("sadly you do not have any points yet!");
+			msg.reply(`you currently have ${row.points} points, good going!`);
+		});
 	}
-     }).catch(() => {
-	console.error;
-	sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, level INTEGER)").then(() => {
-		sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
-	}); 
-     });
-
-if (!message.content.startsWith(p)) return;
-
-if (message.content.startsWith(p + "level")) {
-	sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-		if (!row) return message.reply("Your current level is 0");
-		message.reply(`Your current level is ${row.level}`);
-	});
-} 
-else if (message.content.startsWith(p + "points")) {
-	sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-		if (!row) return message.reply("sadly you do not have any points yet!");
-		message.reply(`you currently have ${row.points} points, good going!`);
-	});
-}
 });
-
-
-
-
-
 
 client.login(process.env.BOT_TOKEN);
