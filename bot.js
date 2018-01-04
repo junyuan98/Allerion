@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
-const points = require("points.json");
 const p = "a!";
 var ALLERIA = "331053004910362624";
 
@@ -109,9 +108,6 @@ client.on('message', msg => {
 	}
 
 	//Beta commands
-	if (msg.content === ( p + "test" )) {
-		msg.channel.sendMessage( points.code );
-	}
 	
 	if (msg.content === ( p + "testing" )) {
 		let target = msg.mentions.users.first();
