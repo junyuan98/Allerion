@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const fs = require("fs");
 const p = "a!";
 var ALLERIA = "331053004910362624";
 
@@ -13,16 +12,13 @@ function randomnumber(y){
 	return [Math.floor(Math.random() * y + 1)];
 };
 
-let points = JSON.parse(fs.readFileSync("points.json", "utf8"));
-
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.1.0.0 - The Greatness of Levels");
-		msg.channel.sendMessage("```LEVELS ARE IN PROGRESS AND ARE HIGHLY UNSTABLE```");
-		msg.channel.sendMessage("```TYPE MORE TO LEVEL UP (**NOT SPAM**)```");
+		msg.channel.sendMessage("Allerion version A.0.0.9.0 - Nothing much new but i forgot the name of 0.0.8");
+		msg.channel.sendMessage("```LEVELS ARE IN PROGRESS```");
 	}
 	
 	if (msg.content === (p + "help")) {
@@ -123,28 +119,6 @@ client.on('message', msg => {
 	}
 
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
-	
-
-	if (!points[msg.author.id]) points[msg.author.id] = {
-		points: 0,
-		level: 0
-	};
-	let userData = points[msg.author.id];
-	userData.points++;
-
-	let curLevel = Math.floor(Math.sqrt(userData.points));
-	if (curLevel > userData.level) {
-		// Level up!
-		userData.level = curLevel;
-		msg.reply(`You"ve leveled up to level **${curLevel}**! Road to god is real?`);
-	}
-
-	if (msg.content.startsWith(p + "level")) {
-		msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
-	}
-	fs.writeFile("points.json", JSON.stringify(points), (err) => {
-		if (err) console.error(err)
-	});
 });
 
 client.login(process.env.BOT_TOKEN);
