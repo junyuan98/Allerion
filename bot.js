@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const sql = require("sqlite");
-sql.open("./score.sqlite");
+const fs = require("fs");
 const p = "a!";
 var ALLERIA = "331053004910362624";
 
@@ -13,6 +12,8 @@ client.on('ready', () => {
 function randomnumber(y){
 	return [Math.floor(Math.random() * y + 1)];
 };
+
+let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 
 client.on('message', msg => {
 	if (msg.author.bot) return;
@@ -29,7 +30,7 @@ client.on('message', msg => {
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
 		.addField("**Commands**", "**ping**\n**avatar**\n**random**\n**version**\n**profile**\n**trigger**\n**greetings**\n**randomsing**")
-		.addField("**Character**","**level**\n**points**")
+		.addField("**Character**","**level**")
 		.setFooter("Allerion")
 		.setTimestamp()
 		.setColor("#000000")
@@ -123,41 +124,27 @@ client.on('message', msg => {
 
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
 	
-	
-	
-	sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
-		if (!row) {
-			sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [msg.author.id, 1, 0]);
-		} 
-		else {
-			let curLevel = Math.floor(Math.sqrt(row.points + 1));
-			if (curLevel > row.level) {
-				row.level = curLevel;
-				sql.run(`UPDATE scores SET points = ${row.points + 1}, level = ${row.level} WHERE userId = ${msg.author.id}`);
-				msg.reply(`You've leveled up to level **${curLevel}**! Road to god is real?`);
-			}
-			sql.run(`UPDATE scores SET points = ${row.points + 1} WHERE userId = ${msg.author.id}`);
-		}
-	}).catch(() => {
-		console.error;
-		sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, level INTEGER)").then(() => {
-			sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [msg.author.id, 1, 0]);
-		});
-	});
 
-	if (!msg.content.startsWith(p)) return;
+	if (!points[msg.author.id]) points[msg.author.id] = {
+		points: 0,
+		level: 0
+	};
+	let userData = points[msg.author.id];
+	userData.points++;
+
+	let curLevel = Math.floor(Math.sqrt(userData.points));
+	if (curLevel > userData.level) {
+		// Level up!
+		userData.level = curLevel;
+		msg.reply(`You"ve leveled up to level **${curLevel}**! Road to god is real?`);
+	}
 
 	if (msg.content.startsWith(p + "level")) {
-		sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
-			if (!row) return msg.reply("Your current level is 0");
-			msg.reply(`Your current level is ${row.level}`);
-		});
-	} else if (msg.content.startsWith(p + "points")) {
-		sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
-			if (!row) return msg.reply("sadly you do not have any points yet!");
-			msg.reply(`you currently have ${row.points} points, good going!`);
-		});
+		msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
 	}
+	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+		if (err) console.error(err)
+	});
 });
 
 client.login(process.env.BOT_TOKEN);
