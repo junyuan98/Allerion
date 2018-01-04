@@ -110,8 +110,7 @@ client.on('message', msg => {
 
 	//Beta commands
 	if (msg.content === ( p + "test" )) {
-		var x = client.users.id;
-		msg.channel.sendMessage( x );
+		msg.channel.sendMessage( points.code );
 	}
 	
 	if (msg.content === ( p + "testing" )) {
