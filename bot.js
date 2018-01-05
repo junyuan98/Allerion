@@ -5,7 +5,7 @@ const p = "a!";
 var ALLERIA = "331053004910362624";
 const swearWords = ["fuck", "shit", "cb"];
 const terms = ["ExtremeDie", "ED"];
-const extreme = ["ExtremeDie", "ED"];
+const extreme = ["Extreme","extreme"];
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
