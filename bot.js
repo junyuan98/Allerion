@@ -22,6 +22,16 @@ client.on('message', msg => {
 		msg.reply("Please dont be rude my baby");
 	}
 	
+	const terms = ["extremedie", "ed"];
+	if( terms.some(word => msg.content.toLowerCase().includes(word)) ) {
+		msg.channel.sendMessage("ED is GOD, ED is LIFE");
+	}
+	
+	const extreme = ["extreme"];
+	if( extreme.some(word => msg.content.toLowerCase().includes(word)) ) {
+		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
+	}
+	
 	if (msg.content === ( p + "version" )) { 
 		msg.channel.sendMessage("Allerion version A.0.0.9.3 - I swear, I swore");
 		msg.channel.sendMessage("```LEVELS ARE IN PROGRESS```");
@@ -108,7 +118,6 @@ client.on('message', msg => {
 			'I hear Jerusalem bells a-ringing, Roman Cavalry choirs are singing',
 			'Duuuuuuuuuuuuuuuuuuuuuuun, Dun dun dun dun dun dun dun dun dun dun dun dundun dun dundundun dun dun dun dun dun dun dundun dundun, BOOM',
 			'Im a barbie girl, in a barbie world',
-			'
 		];
 		var number = Math.floor(Math.random() * songLyrics.length);
 		msg.channel.sendMessage(`${songLyrics[number]}`);
