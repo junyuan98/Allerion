@@ -17,7 +17,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
-	const swearWords = ["fuck", "shit", "cb", "sohai", "noob"];
+	const swearWords = ["fuck", "cb", "sohai", "noob"];
 	if( swearWords.some(word => msg.content.toLowerCase().includes(word)) ) {
 		msg.channel.sendMessage("Dont rude la cb");
 	}
