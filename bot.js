@@ -4,6 +4,8 @@ const fs = require("fs");
 const p = "a!";
 var ALLERIA = "331053004910362624";
 const swearWords = ["fuck", "shit", "cb"];
+const terms = ["ExtremeDie", "ED"];
+const extreme = ["ExtremeDie", "ED"];
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
@@ -17,6 +19,14 @@ function randomnumber(y){
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
+	
+	if( terms.some(word => msg.content.includes(word)) ) {
+		msg.channel.sendMessage("ED is GOD, ED is LIFE");
+	}
+	
+	if( extreme.some(word => msg.content.includes(word)) ) {
+		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
+	}
 	
 	if( swearWords.some(word => msg.content.includes(word)) ) {
 		msg.reply("Please dont be rude my baby");
