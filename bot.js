@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const fs = require("fs");
 const p = "a!";
 var ALLERIA = "331053004910362624";
+const swearWords = ["fuck", "shit", "cb"];
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
@@ -17,8 +18,12 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
+	if( swearWords.some(word => msg.content.includes(word)) ) {
+		msg.reply("Please dont be rude my baby");
+	}
+	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.9.2 - Nothing much new but i forgot the name of 0.0.8");
+		msg.channel.sendMessage("Allerion version A.0.0.9.3 - I swear, I swore");
 		msg.channel.sendMessage("```LEVELS ARE IN PROGRESS```");
 	}
 	
@@ -83,7 +88,7 @@ client.on('message', msg => {
 		if (msg.author.id === ALLERIA)
 			msg.channel.sendMessage("Greetings owner <3 Have a nice day~");
 		else
-			msg.channel.sendMessage("Greetings Discordling " + msg.author.id + ", have a nice day");
+			msg.channel.sendMessage("Greetings Discorder " + msg.author.id + ", have a nice day");
 	}
 	
 	if (msg.content === ( p + "randomsing" )) {
@@ -97,11 +102,13 @@ client.on('message', msg => {
 			'We were just kids when we fell , in, love',
 			'People fall in love in mysterious ways, maybe just the touch of a hand',
 			'你好吗,我会中文 Ching Chong',
-			'AND IIIIIIIIIII***IIII***IIII WILL ALWAYSSSSS LOVEEE YOUUUUU_UUU_**UUU**_UUU_UUU',
+			'AND IIIIIIIIIII***IIII***IIII WILL ALWAYSSSSS LOVEEE YOUUUUU_UUU_**UUU**UUUuuu',
 			'When I see your face, theres not a thing that I would change, cause youre amazing, just the way you are',
 			'Gave you all I had and you tossed it in the trash, you tossed it in the trash, you did',
 			'I hear Jerusalem bells a-ringing, Roman Cavalry choirs are singing',
-			'Duuuuuuuuuuuuuuuuuuuuuuun, Dun dun dun dun dun dun dun dun dun dun dun dundun dun dundundun dun dun dun dun dun dun dundun dundun, BOOM'
+			'Duuuuuuuuuuuuuuuuuuuuuuun, Dun dun dun dun dun dun dun dun dun dun dun dundun dun dundundun dun dun dun dun dun dun dundun dundun, BOOM',
+			'Im a barbie girl, in a barbie world',
+			'
 		];
 		var number = Math.floor(Math.random() * songLyrics.length);
 		msg.channel.sendMessage(`${songLyrics[number]}`);
