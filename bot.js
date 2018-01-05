@@ -17,13 +17,13 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
-	const swearWords = ["fuck", "shit", "cb"];
+	const swearWords = ["fuck", "shit", "cb", "sohai"];
 	if( swearWords.some(word => msg.content.toLowerCase().includes(word)) ) {
-		msg.reply("Please dont be rude my baby");
+		msg.channel.sendMessage("Dont rude la cb");
 	}
 	
-	const terms = ["extremedie", "ed"];
-	if( terms.some(word => msg.content.toLowerCase().includes(word)) ) {
+	const terms = ["ExtremeDie", "ED"];
+	if( terms.some(word => msg.content.includes(word)) ) {
 		msg.channel.sendMessage("ED is GOD, ED is LIFE");
 	}
 	
