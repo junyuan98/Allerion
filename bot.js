@@ -3,9 +3,6 @@ const client = new Discord.Client();
 const fs = require("fs");
 const p = "a!";
 var ALLERIA = "331053004910362624";
-const swearWords = ["fuck", "shit", "cb"];
-const terms = ["ExtremeDie", "ED"];
-const extreme = ["Extreme","extreme"];
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
@@ -20,6 +17,10 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
+	const swearWords = ["fuck", "shit", "cb"];
+	const terms = ["ExtremeDie", "ED"];
+	const extreme = ["Extreme","extreme"];
+
 	if( terms.some(word => msg.content.includes(word)) ) {
 		msg.channel.sendMessage("ED is GOD, ED is LIFE");
 	}
