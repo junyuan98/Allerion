@@ -18,18 +18,18 @@ client.on('message', msg => {
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
 
-	const terms = ["ExtremeDie", "ED"];
-	if( terms.some(word => msg.content.includes(word)) ) {
+	const terms = ["extremedie", "ed"];
+	if( terms.some(word => msg.content.toLowerCase().includes(word)) ) {
 		msg.channel.sendMessage("ED is GOD, ED is LIFE");
 	}
 	
-	const extreme = ["Extreme","extreme"];
-	if( extreme.some(word => msg.content.includes(word)) ) {
+	const extreme = ["extreme"];
+	if( extreme.some(word => msg.content.toLowerCase().includes(word)) ) {
 		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
 	}
 	
 	const swearWords = ["fuck", "shit", "cb"];
-	if( swearWords.some(word => msg.content.includes(word)) ) {
+	if( swearWords.some(word => msg.content.toLowerCase().includes(word)) ) {
 		msg.reply("Please dont be rude my baby");
 	}
 	
