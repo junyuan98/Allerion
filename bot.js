@@ -17,7 +17,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
-	const swearWords = ["fuck", "shit", "cb", "sohai"];
+	const swearWords = ["fuck", "shit", "cb", "sohai", "noob"];
 	if( swearWords.some(word => msg.content.toLowerCase().includes(word)) ) {
 		msg.channel.sendMessage("Dont rude la cb");
 	}
@@ -33,7 +33,7 @@ client.on('message', msg => {
 	}
 	
 	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.9.3 - I swear, I swore");
+		msg.channel.sendMessage("Allerion version A.0.0.9.5 - I swear, I swore");
 		msg.channel.sendMessage("```LEVELS ARE IN PROGRESS```");
 	}
 	
