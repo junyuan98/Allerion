@@ -67,7 +67,7 @@ client.on('message', msg => {
 	
 	if (command === 'kick') {
 		if (msg.author.id === "331053004910362624") {
-			let member = message.mentions.members.first();
+			let member = msg.mentions.members.first();
 			member.kick();
 		}
 		else return;
