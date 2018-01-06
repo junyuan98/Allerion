@@ -10,5 +10,8 @@ var textArray = [
 
 exports.run = (client, msg, args) => {
 	var Quote = Math.floor(Math.random() * textArray.length);
-	msg.channel.sendMessage( msg.content.substr("a!trigger ".length) + ", " + `${textArray[Quote]}` ); 
+	if (msg.content.substr("a!trigger ".length) === "331053004910362624")
+		msg.channel.sendMessage("Dont trigger my creator pls (You can still manual type Alleria tho)");
+	else
+		msg.channel.sendMessage( msg.content.substr("a!trigger ".length) + ", " + `${textArray[Quote]}` ); 
 }
