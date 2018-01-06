@@ -66,7 +66,7 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'kick') {
-		let member = msg.mentions.members.first();
+		let member = msg.mention.members.first();
 		member.kick();
 	}
 	
