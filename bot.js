@@ -6,7 +6,7 @@ var ALLERIA = "331053004910362624";
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setPresence({ game: { name: 'Alpha Testing', type: 0 } });
+	client.user.setActivity('the world', { type: 'WATCHING' });
 });
 
 client.on('message', msg => {
@@ -17,7 +17,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.11.15 - LUL,a wild emoji appears");
+		msg.channel.sendMessage("Allerion version A.0.0.11.17 - LUL,a wild emoji appears");
 		msg.channel.sendMessage("```listemojis command is now available, profile malfunctioning```");
 	}
 
