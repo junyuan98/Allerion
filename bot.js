@@ -17,8 +17,8 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.11.10 - LUL,a wild emoji appears");
-		msg.channel.sendMessage("```listemojis command is now available, profile may be functioning```");
+		msg.channel.sendMessage("Allerion version A.0.0.11.13 - LUL,a wild emoji appears");
+		msg.channel.sendMessage("```listemojis command is now available, profile malfunctioning```");
 	}
 
 	
