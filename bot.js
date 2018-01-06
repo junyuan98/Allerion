@@ -37,7 +37,7 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.10.0 - Sensitive case");
+		msg.channel.sendMessage("Allerion version A.0.0.10.1 - A Sensitive case");
 		msg.channel.sendMessage("```commands are now case insensitive (hooray)```");
 	}
 	
@@ -128,17 +128,17 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'kick') {
-		let member = msg.mentions.users.first();
-		if (msg.author.id === ALLERIA)
+		if (msg.author.id === ALLERIA) {
+			let member = message.mentions.members.first();
 			member.kick();
+		}
 		else return;
 	}
 	//Beta commands
 	
 	if (command === 'test') {
-		let target = msg.mentions.users.first();
-		msg.channel.sendMessage(target);
-		target;
+		let [age, sex, location] = args;
+		msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
 	}
 
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
