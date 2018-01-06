@@ -1,6 +1,6 @@
 exports.run = (client, msg, args) => {
 	
-	const embed = new Discord.RichEmbed()
+	let embed = new Discord.RichEmbed()
 	.setAuthor(msg.author.username , msg.author.avatarURL)
 	.setThumbnail(msg.author.avatarURL)
 	.addField("Username", `${msg.author.tag}`)
