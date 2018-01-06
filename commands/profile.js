@@ -11,5 +11,5 @@ let embed = new Discord.RichEmbed()
 
 
 exports.run = (client, msg, args) => {
-		msg.channel.sendMessage({embed});
+	msg.channel.send({embed});
 }
