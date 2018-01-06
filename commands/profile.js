@@ -1,5 +1,4 @@
-{
-let embed = new Discord.RichEmbed()
+const embed = new Discord.RichEmbed()
 .setAuthor(msg.author.username , msg.author.avatarURL)
 .setThumbnail(msg.author.avatarURL)
 .addField("Username", `${msg.author.tag}`)
@@ -8,9 +7,7 @@ let embed = new Discord.RichEmbed()
 .setTimestamp()
 .setColor("#b200ff")
 .addBlankField(true);
-}
 
-	
 exports.run = (client, msg, args) => {
-	msg.channel.send({embed});
+	msg.channel.sendMessage({embed});
 }
