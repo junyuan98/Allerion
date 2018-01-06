@@ -17,7 +17,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.12.2 - Tag and run");
+		msg.channel.sendMessage("Allerion version A.0.0.12.3 - Tag and run");
 		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
 	}
 
@@ -67,9 +67,8 @@ client.on('message', msg => {
 	if (command === 'kick') {
 		if (msg.author.id === ALLERIA) {
 			let member = msg.mentions.members.first();
-			let reason = args.slice(1).join(" ");
 			member.kick();
-			msg.channel.sendMessage(`${member.user.username} was succesfully kicked for ${reason}.`);
+			msg.channel.sendMessage(`${member.user.username} was succesfully kicked. Hooray! (or nay)`);
 		}
 	}
 	
