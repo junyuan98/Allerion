@@ -14,12 +14,18 @@ function randomnumber(y){
 };
 
 client.on('message', msg => {
+	if (msg.author.bot) return;
+	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
 	const args = msg.content.slice(p.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	
-	if (msg.author.bot) return;
-	if (msg.channel.type === "dm") return; // Ignore DM channels.
+	try {
+		let commandFile = require(`./commands/${command}.js`);
+		commandFile.run(client, msg, args);
+	} catch (err) {
+		console.error(err);
+	}
 	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
 	if( swearWords.some(word => msg.content.toLowerCase().includes(word)) ) {
@@ -37,10 +43,11 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.10.1 - A Sensitive case");
+		msg.channel.sendMessage("Allerion version A.0.0.10.2 - A Sensitive case");
 		msg.channel.sendMessage("```commands are now case insensitive (hooray)```");
 	}
 	
+	/*
 	if (command === 'help') {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
@@ -57,6 +64,7 @@ client.on('message', msg => {
 	if (command === 'ping') {
 		msg.channel.sendMessage( msg.author + ", Pong! My ping is " + client.ping + "ms." );
 	}
+	
 	if (command === 'avatar') {
 		msg.reply(msg.author.avatarURL);
 	}
@@ -139,7 +147,7 @@ client.on('message', msg => {
 	if (command === 'test') {
 		let [age, sex, location] = args;
 		msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
-	}
+	}*/
 
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
 });
