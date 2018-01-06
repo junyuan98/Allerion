@@ -43,7 +43,7 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.10.2 - A Sensitive case");
+		msg.channel.sendMessage("Allerion version A.0.0.10.3 - A Sensitive case");
 		msg.channel.sendMessage("```commands are now case insensitive (hooray)```");
 	}
 	
