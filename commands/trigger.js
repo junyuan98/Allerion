@@ -8,7 +8,7 @@ var textArray = [
   'Hi bitch'
 ];
 
-exports.run = (client, msg, args, p) => {
+exports.run = (client, msg, args) => {
 	var Quote = Math.floor(Math.random() * textArray.length);
-	msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
+	msg.channel.sendMessage( msg.content.substr("a!trigger ".length) + ", " + `${textArray[Quote]}` ); 
 }
