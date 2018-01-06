@@ -14,22 +14,22 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
-	const args = msg.content.slice(prefix.length).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
+	//const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+	//const command = args.shift().toLowerCase();
 	
-	if (command === "version"){ 
-		msg.channel.sendMessage("Allerion version A.0.0.12.8 - Tag and run");
+	if (msg.content.startsWith(prefix +"ping")){ 
+		msg.channel.sendMessage("Allerion version A.0.0.12.10 - Tag and run");
 		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
 	}
 
-	try {
+	/*try {
 		let commandFile = require(`./commands/${command}.js`);
 		commandFile.run(client, msg, args);
 	} catch (err) {
 		console.error(err);
 	}
 	
-	/*const LOLs = ["LUL", "HAHA"];
+	const LOLs = ["LUL", "HAHA"];
 	if( LOLs.some(word => msg.content.includes(word)) ) {
 		const LUL = client.emojis.find("name", "LUL");
 		msg.react(LUL.id);
