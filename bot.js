@@ -9,10 +9,6 @@ client.on('ready', () => {
 	client.user.setPresence({ game: { name: 'Alpha Testing', type: 0 } });
 });
 
-function randomnumber(y){
-	return [Math.floor(Math.random() * y + 1)];
-};
-
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
@@ -70,9 +66,7 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'kick') {
-		if (msg.mentions.members.size === 0)
-			return msg.reply("Please mention a user to kick");
-		if (msg.author.id === ALLERIA) {
+		if (msg.author.id === "331053004910362624") {
 			let member = message.mentions.members.first();
 			member.kick();
 		}
@@ -80,16 +74,6 @@ client.on('message', msg => {
 	}
 	
 	/*
-	if (command === 'random') {
-		var y = parseInt(msg.content.substr("random ".length + p.length), 10);
-		if ( isNaN(y) === true )
-			msg.channel.sendMessage("Please enter a valid number");
-		else {
-			var x = randomnumber(y);
-			msg.channel.sendMessage("You have randomed " + x );
-		}
-	}
-	
 	if (command === 'profile') {
 		let embed = new Discord.RichEmbed()
 		.setAuthor(msg.author.username , msg.author.avatarURL)
