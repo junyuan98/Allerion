@@ -18,7 +18,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === "version"){ 
-		msg.channel.sendMessage("Allerion version A.0.0.12.7 - Tag and run");
+		msg.channel.sendMessage("Allerion version A.0.0.12.8 - Tag and run");
 		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
 	}
 
@@ -29,7 +29,7 @@ client.on('message', msg => {
 		console.error(err);
 	}
 	
-	const LOLs = ["LUL", "HAHA"];
+	/*const LOLs = ["LUL", "HAHA"];
 	if( LOLs.some(word => msg.content.includes(word)) ) {
 		const LUL = client.emojis.find("name", "LUL");
 		msg.react(LUL.id);
@@ -52,7 +52,7 @@ client.on('message', msg => {
 		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
 	}
 	
-	/*if (command === 'help') {
+	if (command === 'help') {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
