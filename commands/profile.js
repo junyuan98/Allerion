@@ -1,5 +1,5 @@
 
-exports.run = (client, msg, args) => {
+exports.run = (client, msg, args, embed) => {
 	let embed = new Discord.RichEmbed()
 	.setAuthor(msg.author.username , msg.author.avatarURL)
 	.setThumbnail(msg.author.avatarURL)
