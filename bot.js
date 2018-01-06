@@ -17,8 +17,8 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.11.20 - LUL,a wild emoji appears");
-		msg.channel.sendMessage("```listemojis command is now available, profile malfunctioning```");
+		msg.channel.sendMessage("Allerion version A.0.0.12.0 - Tag and run");
+		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
 	}
 
 	try {
@@ -65,15 +65,17 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'kick') {
-		let member = msg.mentions.members.first();
-		member.kick();
+		if (msg.author.id === ALLERIA) {
+			let member = msg.mentions.members.first();
+			member.kick();
+		}
 	}
 	
 	if (command === 'tag') {
-		if (msg.author.id === ALLERIA) {
-			let member = msg.mentions.members.first();
-			msg.channel.sendMessage(`${member.id}`);
-		}
+		let member = msg.mentions.members.first();
+		msg.channel.sendMessage(`${member.id}`);
+		msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
+		
 	}
 	/*
 	if (command === 'profile') {
