@@ -43,11 +43,10 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.10.3 - A Sensitive case");
+		msg.channel.sendMessage("Allerion version A.0.0.10.17 - A Sensitive case");
 		msg.channel.sendMessage("```commands are now case insensitive (hooray)```");
 	}
-	
-	/*
+
 	if (command === 'help') {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
@@ -61,6 +60,17 @@ client.on('message', msg => {
 		msg.channel.send({embed});
 	}
 	
+	if (command === 'kick') {
+		if (msg.mentions.members.size === 0)
+			return msg.reply("Please mention a user to kick");
+		if (msg.author.id === ALLERIA) {
+			let member = message.mentions.members.first();
+			member.kick();
+		}
+		else return;
+	}
+	
+	/*
 	if (command === 'ping') {
 		msg.channel.sendMessage( msg.author + ", Pong! My ping is " + client.ping + "ms." );
 	}
@@ -135,13 +145,6 @@ client.on('message', msg => {
 		msg.channel.sendMessage(`${songLyrics[number]}`);
 	}
 	
-	if (command === 'kick') {
-		if (msg.author.id === ALLERIA) {
-			let member = message.mentions.members.first();
-			member.kick();
-		}
-		else return;
-	}
 	//Beta commands
 	
 	if (command === 'test') {
