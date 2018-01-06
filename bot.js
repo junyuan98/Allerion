@@ -17,7 +17,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.12.3 - Tag and run");
+		msg.channel.sendMessage("Allerion version A.0.0.12.4 - Tag and run");
 		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
 	}
 
@@ -64,7 +64,7 @@ client.on('message', msg => {
 		msg.channel.send({embed});
 	}
 	
-	if (command === 'kick') {
+	/*if (command === 'kick') {
 		if (msg.author.id === ALLERIA) {
 			let member = msg.mentions.members.first();
 			member.kick();
@@ -78,7 +78,7 @@ client.on('message', msg => {
 		msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
 		
 	}
-	/*
+
 	if (command === 'profile') {
 		let embed = new Discord.RichEmbed()
 		.setAuthor(msg.author.username , msg.author.avatarURL)
