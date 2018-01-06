@@ -14,13 +14,13 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
-	const args = msg.content.slice(prefix.length).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
+	//const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+	//const command = args.shift().toLowerCase();
 	
-	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.12.4 - Tag and run");
-		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
-	}
+	//if (command === 'version'){ 
+	//	msg.channel.sendMessage("Allerion version A.0.0.12.7 - Tag and run");
+	//	msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
+	//}
 
 	try {
 		let commandFile = require(`./commands/${command}.js`);
@@ -52,7 +52,7 @@ client.on('message', msg => {
 		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
 	}
 	
-	if (command === 'help') {
+	/*if (command === 'help') {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
@@ -65,7 +65,7 @@ client.on('message', msg => {
 		msg.channel.send({embed});
 	}
 	
-	/*if (command === 'kick') {
+	if (command === 'kick') {
 		if (msg.author.id === ALLERIA) {
 			let member = msg.mentions.members.first();
 			member.kick();
@@ -91,13 +91,13 @@ client.on('message', msg => {
 		.setColor("#b200ff")
 		.addBlankField(true);
 		msg.channel.send({embed});
-	}*/
+	}
 	//Beta commands
 	
 	if (command === 'test') {
 		let [age, sex, location] = args;
 		msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
-	}
+	}*/
 
 	//Tags people if know id -> msg.channel.sendMessage("<@" + msg.author.id +">");
 });
