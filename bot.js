@@ -20,6 +20,12 @@ client.on('message', msg => {
 	const args = msg.content.slice(p.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	
+	if (command === 'version'){ 
+		msg.channel.sendMessage("Allerion version A.0.0.10.20 - A Sensitive case");
+		msg.channel.sendMessage("```commands are now case insensitive (hooray)```");
+	}
+
+	
 	try {
 		let commandFile = require(`./commands/${command}.js`);
 		commandFile.run(client, msg, args);
@@ -29,7 +35,9 @@ client.on('message', msg => {
 	
 	const LOLs = ["lol", "haha"];
 	if( LOLs.some(word => msg.content.toLowerCase().includes(word)) ) {
-		msg.reply(":LUL:");
+		const LUL = client.emojis.find("name", "LUL");
+		msg.reply(`${LUL}`);
+
 	}
 	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
@@ -47,11 +55,6 @@ client.on('message', msg => {
 		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
 	}
 	
-	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.10.18 - A Sensitive case");
-		msg.channel.sendMessage("```commands are now case insensitive (hooray)```");
-	}
-
 	if (command === 'help') {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
