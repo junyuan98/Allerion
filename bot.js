@@ -6,7 +6,7 @@ var ALLERIA = "331053004910362624";
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setActivity('the world', { type: 'WATCHING' });
+	client.user.setPresence({ game: { name: 'the World', type: 3 } });
 });
 
 client.on('message', msg => {
