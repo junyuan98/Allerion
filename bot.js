@@ -33,8 +33,8 @@ client.on('message', msg => {
 		console.error(err);
 	}
 	
-	const LOLs = ["lol", "haha"];
-	if( LOLs.some(word => msg.content.toLowerCase().includes(word)) ) {
+	const LOLs = ["LUL", "HAHA"];
+	if( LOLs.some(word => msg.content.includes(word)) ) {
 		const LUL = client.emojis.find("name", "LUL");
 		msg.react(LUL.id);
 		msg.channel.sendMessage(`${LUL}`);
