@@ -14,13 +14,13 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
-	//const args = msg.content.slice(prefix.length).trim().split(/ +/g);
-	//const command = args.shift().toLowerCase();
+	const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
 	
-	//if (command === 'version'){ 
-	//	msg.channel.sendMessage("Allerion version A.0.0.12.7 - Tag and run");
-	//	msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
-	//}
+	if (command === 'version'){ 
+		msg.channel.sendMessage("Allerion version A.0.0.12.7 - Tag and run");
+		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
+	}
 
 	try {
 		let commandFile = require(`./commands/${command}.js`);
