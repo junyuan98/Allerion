@@ -9,7 +9,6 @@ var textArray = [
 ];
 
 exports.run = (client, msg, args) => {
-  var Quote = Math.floor(Math.random() * textArray.length);
-  msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
-	}
+	var Quote = Math.floor(Math.random() * textArray.length);
+	msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
 }
