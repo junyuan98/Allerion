@@ -21,7 +21,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.10.20 - A Sensitive case");
+		msg.channel.sendMessage("Allerion version A.0.0.10.22 - A Sensitive case");
 		msg.channel.sendMessage("```commands are now case insensitive (hooray)```");
 	}
 
@@ -36,7 +36,8 @@ client.on('message', msg => {
 	const LOLs = ["lol", "haha"];
 	if( LOLs.some(word => msg.content.toLowerCase().includes(word)) ) {
 		const LUL = client.emojis.find("name", "LUL");
-		msg.reply(`${LUL}`);
+		msg.react(LUL.id);
+		msg.channel.sendMessage(`${LUL}`);
 
 	}
 	
