@@ -17,7 +17,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.11.18 - LUL,a wild emoji appears");
+		msg.channel.sendMessage("Allerion version A.0.0.11.20 - LUL,a wild emoji appears");
 		msg.channel.sendMessage("```listemojis command is now available, profile malfunctioning```");
 	}
 
@@ -69,6 +69,12 @@ client.on('message', msg => {
 		member.kick();
 	}
 	
+	if (command === 'tag') {
+		if (msg.author.id === ALLERIA) {
+			let member = msg.mentions.members.first();
+			msg.channel.sendMessage(`${member.id}`);
+		}
+	}
 	/*
 	if (command === 'profile') {
 		let embed = new Discord.RichEmbed()
