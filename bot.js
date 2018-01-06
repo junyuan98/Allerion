@@ -27,6 +27,11 @@ client.on('message', msg => {
 		console.error(err);
 	}
 	
+	const LOLs = ["lol", "haha"];
+	if( LOLs.some(word => msg.content.toLowerCase().includes(word)) ) {
+		msg.reply(":LUL:");
+	}
+	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
 	if( swearWords.some(word => msg.content.toLowerCase().includes(word)) ) {
 		msg.channel.sendMessage("Dont rude la cb");
@@ -43,7 +48,7 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'version'){ 
-		msg.channel.sendMessage("Allerion version A.0.0.10.17 - A Sensitive case");
+		msg.channel.sendMessage("Allerion version A.0.0.10.18 - A Sensitive case");
 		msg.channel.sendMessage("```commands are now case insensitive (hooray)```");
 	}
 
