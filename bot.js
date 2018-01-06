@@ -14,6 +14,10 @@ function randomnumber(y){
 };
 
 client.on('message', msg => {
+	
+	const args = msg.content.slice(p.length).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
+	
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
@@ -32,12 +36,12 @@ client.on('message', msg => {
 		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
 	}
 	
-	if (msg.content === ( p + "version" )) { 
-		msg.channel.sendMessage("Allerion version A.0.0.9.5 - I swear, I swore");
-		msg.channel.sendMessage("```LEVELS ARE IN PROGRESS```");
+	if (command === 'version'){ 
+		msg.channel.sendMessage("Allerion version A.0.0.10.0 - Sensitive case");
+		msg.channel.sendMessage("```commands are now case insensitive (hooray)```");
 	}
 	
-	if (msg.content === (p + "help")) {
+	if (command === 'help') {
 		let embed = new Discord.RichEmbed()
 		.setAuthor("BOT Allerion" , client.user.avatarURL)
 		.setThumbnail(client.user.avatarURL)
@@ -50,14 +54,14 @@ client.on('message', msg => {
 		msg.channel.send({embed});
 	}
 	
-	if (msg.content === ( p + "ping" )) {
+	if (command === 'ping') {
 		msg.channel.sendMessage( msg.author + ", Pong! My ping is " + client.ping + "ms." );
 	}
-	if (msg.content === (p + "avatar")) {
+	if (command === 'avatar') {
 		msg.reply(msg.author.avatarURL);
 	}
 	
-	if (msg.content.startsWith(p + "random ")) {
+	if (command === 'random') {
 		var y = parseInt(msg.content.substr("random ".length + p.length), 10);
 		if ( isNaN(y) === true )
 			msg.channel.sendMessage("Please enter a valid number");
@@ -67,7 +71,7 @@ client.on('message', msg => {
 		}
 	}
 	
-	if (msg.content === (p + "profile")) {
+	if (command === 'profile') {
 		let embed = new Discord.RichEmbed()
 		.setAuthor(msg.author.username , msg.author.avatarURL)
 		.setThumbnail(msg.author.avatarURL)
@@ -80,7 +84,7 @@ client.on('message', msg => {
 		msg.channel.send({embed});
 	}
 	
-	if (msg.content.startsWith(p + "trigger ")) {
+	if (command === 'trigger') {
 		var textArray = [
 			'Fuck off',
 			'Fuck you',
@@ -94,14 +98,14 @@ client.on('message', msg => {
 		msg.channel.sendMessage( msg.content.substr("trigger ".length + p.length) + ", " + `${textArray[Quote]}` ); 
 	}
 	
-	if (msg.content === (p + "greetings")) {
+	if (command === 'greetings') {
 		if (msg.author.id === ALLERIA)
 			msg.channel.sendMessage("Greetings owner <3 Have a nice day~");
 		else
 			msg.channel.sendMessage("Greetings Discorder " + msg.author.id + ", have a nice day");
 	}
 	
-	if (msg.content === ( p + "randomsing" )) {
+	if (command === 'randomsing') {
 		var songLyrics = [
 			'Havana oh nana, half of my heart is in havana na na na',
 			'Is it too late now to say sorry',
@@ -123,7 +127,7 @@ client.on('message', msg => {
 		msg.channel.sendMessage(`${songLyrics[number]}`);
 	}
 	
-	if (msg.content === ( p + "kick")) {
+	if (command === 'kick') {
 		let member = msg.mentions.users.first();
 		if (msg.author.id === ALLERIA)
 			member.kick();
@@ -131,7 +135,7 @@ client.on('message', msg => {
 	}
 	//Beta commands
 	
-	if (msg.content === ( p + "testing" )) {
+	if (command === 'test') {
 		let target = msg.mentions.users.first();
 		msg.channel.sendMessage(target);
 		target;
