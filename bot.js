@@ -18,7 +18,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if ( command === "version"){ 
-		msg.channel.sendMessage("Allerion version A.0.0.12.10 - Tag and run");
+		msg.channel.sendMessage("Allerion version A.0.0.12.12 - Tag and run");
 		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
 	}
 
