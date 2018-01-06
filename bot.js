@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
-const p = "a!";
+const prefix = "a!";
+
 var ALLERIA = "331053004910362624";
 
 client.on('ready', () => {
@@ -13,7 +14,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
-	const args = msg.content.slice(p.length).trim().split(/ +/g);
+	const args = msg.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'version'){ 
