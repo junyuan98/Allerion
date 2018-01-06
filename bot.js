@@ -21,7 +21,6 @@ client.on('message', msg => {
 		msg.channel.sendMessage("```listemojis command is now available, profile malfunctioning```");
 	}
 
-	
 	try {
 		let commandFile = require(`./commands/${command}.js`);
 		commandFile.run(client, msg, args);
@@ -66,7 +65,7 @@ client.on('message', msg => {
 	}
 	
 	if (command === 'kick') {
-		let member = msg.mention.members.first();
+		let member = msg.mentions.members.first();
 		member.kick();
 	}
 	
