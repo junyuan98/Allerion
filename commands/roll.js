@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 
-
 exports.run = (client, msg, args) => {
         var number = Math.floor(Math.random() * args.length);
         msg.channel.sendMessage("You have rolled " + `${args[number]}` + "!");
@@ -11,9 +10,7 @@ exports.run = (client, msg, args) => {
         .setDescription("You have rolled " + `${args[number]}` + "!")
         .setFooter("Gambling is bad")
         .setTimestamp()
-        .addBlankField(true);
         
         msg.channel.send({embed});
-        
 }
         
