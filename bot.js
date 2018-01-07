@@ -26,8 +26,8 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.14.5 - Rolling in the deep");
-			msg.channel.sendMessage("`Roll is in construction, New command suggestions are welcomed`");
+			msg.channel.sendMessage("Allerion version A.0.0.14.8 - Rolling in the deep");
+			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 	
 		if (command === 'help') {
@@ -43,9 +43,13 @@ client.on('message', msg => {
 			msg.channel.send({newembed});
 		}
 		
-		if (command === 'tag') {
-			let member = msg.mentions.members.first();
-			msg.channel.sendMessage(`${member}`);
+		if (command === 'test') {
+			let [name] = args;
+			if ( `${name}` === undefined) {
+				msg.channel.sendMessage("Please type someshit after");
+			}
+			else 
+				msg.channel.sendMessage("You have typed some shit.");
 			
 		}
 
