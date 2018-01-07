@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
 const prefix = "a!";
+let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 
 var ALLERIA = "331053004910362624";
 
