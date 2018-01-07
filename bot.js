@@ -36,6 +36,11 @@ client.on('message', msg => {
 			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 		
+		if ( command === "version"){ 
+			get createdTimestamp() { return Snowflake.deconstruct(msg.author.id).timestamp; }
+			msg.channel.sendMessage("Allerion version A.0.0.15.2 - Welcome to the server");
+			msg.channel.sendMessage("`New command suggestions are welcomed`");
+		}
 		/*if (command === 'date') {
 			let [age, sex, location] = args;
 			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
