@@ -77,13 +77,22 @@ client.on('message', msg => {
 			}
 			else {
 				let embed = new Discord.RichEmbed()
-				.setAuthor(member.user.username , member.user.avatarURL)
+				.setAuthor("text", "https://bestsecuritysearch.com/wp-content/uploads/2016/10/discord-logo-bss.png")
+				.setThumbnail("https://image.ibb.co/dkT4yR/XD.png")
+				.addField("field", "text below field", true)
+				.addField("field2", "text below field2", true)
+				.setImage("https://image.ibb.co/dkT4yR/XD.png")
+				.setFooter("text")
+				.setTimestamp()
+				.setColor("#b200ff")
+				.addBlankField(true)
+				/*.setAuthor(member.user.username , member.user.avatarURL)
 				.setThumbnail(member.user.avatarURL)
 				.addField("Username", `${member.user.tag}`)
 				.addField("UserID", `${member.user.id}`)
 				.addField("Join server date", "Long long ago(_i guess_)")
 				.setTimestamp()
-				.setColor("#b200ff");
+				.setColor("#b200ff");*/
 				msg.channel.send({embed});
 		}
 	}
