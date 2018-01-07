@@ -26,8 +26,8 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.13.15 - Low Profile");
-			msg.channel.sendMessage("`New command suggestions are welcomed`");
+			msg.channel.sendMessage("Allerion version A.0.0.14.0 - Rolling in the deep");
+			msg.channel.sendMessage("`Roll is in construction, New command suggestions are welcomed`");
 		}
 	
 		if (command === 'help') {
