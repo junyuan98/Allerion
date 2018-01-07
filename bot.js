@@ -26,7 +26,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.13.13 - Low Profile");
+			msg.channel.sendMessage("Allerion version A.0.0.13.14 - Low Profile");
 			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 	
@@ -43,7 +43,7 @@ client.on('message', msg => {
 			msg.channel.send({newembed});
 		}
 		
-		if (command === 'profile') {
+		/*if (command === 'profile') {
 			let member = msg.mentions.members.first();
 			if (member.length !== 0){
 				if (!member){
@@ -72,7 +72,7 @@ client.on('message', msg => {
 				.setColor("#b200ff");
 				msg.channel.send({embed});
 			}
-		}
+		}*/
 		
 		if (command === 'kick') {
 			if (msg.author.id === ALLERIA) {
@@ -84,7 +84,8 @@ client.on('message', msg => {
 	
 		if (command === 'tag') {
 			let member = msg.mentions.members.first();
-			msg.channel.sendMessage(`${member}`);
+			msg.channel.sendMessage(`${member}, ${member.length}`);
+			
 		}
 
 
