@@ -19,6 +19,27 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 
+	if (!points[msg.author.id]) points[msg.author.id] = {
+		points: 0,
+		level: 0
+	};
+	let userData = points[msg.author.id];
+	userData.points++;
+
+	let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
+	if (curLevel > userData.level) {
+		// Level up!
+		userData.level = curLevel;
+		msg.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
+	}
+
+	if (msg.content.startsWith(prefix + "level")) {
+		msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
+	}
+	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+		if (err) console.error(err)
+	});
+	
 	if (msg.content.startsWith(prefix)){
 		const args = msg.content.slice(prefix.length).trim().split(/ +/g);
 		const command = args.shift().toLowerCase();
