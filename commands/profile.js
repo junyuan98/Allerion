@@ -1,8 +1,13 @@
 exports.run = (client, msg, args) => {
 	
 	let member = msg.mentions.members.first();
+	if (!member){
+		msg.channel.sendMessage("Please tag a vaild member");
+	}
+	else {
 	msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
 	msg.channel.sendMessage(`${member.user.username}`);
+	}
 	
 	
 	let embed = new Discord.RichEmbed()
@@ -14,6 +19,5 @@ exports.run = (client, msg, args) => {
 	.setTimestamp()
 	.setColor("#b200ff")
 	.addBlankField(true);
-	
-	msg.channel.send(embed);
+	msg.channel.send({embed});
 }
