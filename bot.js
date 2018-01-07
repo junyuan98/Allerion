@@ -36,12 +36,6 @@ client.on('message', msg => {
 			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 		
-		if ( command === "test"){ 
-			get joinedAt() {
-				  return new Date(this.joinedTimestamp);
-			  }
-			msg.channel.sendMessage(joinedAt());
-		}
 		/*if (command === 'date') {
 			let [age, sex, location] = args;
 			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
