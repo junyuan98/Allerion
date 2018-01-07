@@ -6,20 +6,20 @@ exports.run = (client, msg, args) => {
 	.setThumbnail(client.user.avatarURL)
 	.setDescription(`
 		**__Available Commands__**
-	help\t\t- You just typed this
-	ping\t\t- Plays ping pong with you
-	roll\t\t- Rolls between variables you typed (space between variables)
-	avatar\t\t- Displays your own avatar (link included)
-	random\t\t- Type a number behind and randoms a number
-	trigger\t- Tag a person after the command to have fun
-	profile\t- Displays your profile (still improving)
-	version\t- Shows the current version of the BOT
-	listemojis\t- Show all the custom emojis available in current server
-	greetings\t- Need some love? type this
-	randomsing\t- Sing random lyrics for you
-	**__Future Commands__**
-	level\t\t\t- Display levels for you
-	quoteoftheday\t\t- Not sure why this is here
+	help          - You just typed this
+	ping          - Plays ping pong with you
+	roll          - Rolls between variables you typed (space between variables)
+	avatar        - Displays your own avatar (link included)
+	random        - Type a number behind and randoms a number
+	trigger       - Tag a person after the command to have fun
+	profile       - Displays your profile (still improving)
+	version       - Shows the current version of the BOT
+	listemojis    - Show all the custom emojis available in current server
+	greetings     - Need some love? type this
+	randomsing    - Sing random lyrics for you
+	\n**__Future Commands__**
+	level         - Display levels for you
+	quoteoftheday - Not sure why this is here
 		`)
 	.setFooter("Allerion")
 	.setTimestamp()
