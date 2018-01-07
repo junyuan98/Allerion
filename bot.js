@@ -13,29 +13,21 @@ client.on('ready', () => {
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
-	
-	const LOLs = ["LUL", "HAHA"];
-	if( LOLs.some(word => msg.content.includes(word)) ) {
-		const LUL = client.emojis.find("name", "LUL");
-		msg.react(LUL.id);
-		msg.channel.sendMessage(`${LUL}`);
 
-	}
-	
 	if (msg.content.startsWith(prefix)){
 		const args = msg.content.slice(prefix.length).trim().split(/ +/g);
 		const command = args.shift().toLowerCase();
 	
-		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.13.3 - Low Profile");
-			msg.channel.sendMessage("New command suggestions are welcomed");
-		}
-
 		try {
 			let commandFile = require(`./commands/${command}.js`);
 			commandFile.run(client, msg, args);
 		} catch (err) {
 			console.error(err);
+		}
+		
+		if ( command === "version"){ 
+			msg.channel.sendMessage("Allerion version A.0.0.13.3 - Low Profile");
+			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 	
 		if (command === 'help') {
@@ -50,7 +42,38 @@ client.on('message', msg => {
 			.addBlankField(true);
 			msg.channel.send({newembed});
 		}
-	
+		
+		if (command === 'profile') {
+			if( msg.mentions.members()){
+				let member = msg.mentions.members.first();
+				if (!member){
+				msg.channel.sendMessage("Please tag a vaild member");
+				}
+				else {
+					let embed = new Discord.RichEmbed()
+					.setAuthor(member.user.username , member.user.avatarURL)
+					.setThumbnail(member.user.avatarURL)
+					.addField("Username", `${member.user.tag}`)
+					.addField("UserID", `${member.user.id}`)
+					.addField("Join server date", "Long long ago(_i guess_)")
+					.setTimestamp()
+					.setColor("#b200ff");
+					msg.channel.send({embed});
+				}
+			}
+			else {
+				let embed = new Discord.RichEmbed()
+				.setAuthor(msg.author.username , msg.author.avatarURL)
+				.setThumbnail(msg.author.avatarURL)
+				.addField("Username", `${msg.author.tag}`)
+				.addField("UserID", `${msg.author.id}`)
+				.addField("Join server date", "Long long ago(_i guess_)")
+				.setTimestamp()
+				.setColor("#b200ff");
+				msg.channel.send({embed});
+			}
+		}
+		
 		if (command === 'kick') {
 			if (msg.author.id === ALLERIA) {
 				let member = msg.mentions.members.first();
@@ -65,27 +88,19 @@ client.on('message', msg => {
 			msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
 		}
 
-		if (command === 'profile') {
-			let member = msg.mentions.members.first();
-			if (!member){
-				msg.channel.sendMessage("Please tag a vaild member");
-			}
-			else {
-				let embed = new Discord.RichEmbed()
-				.setAuthor(member.user.username , member.user.avatarURL)
-				.setThumbnail(member.user.avatarURL)
-				.addField("Username", `${member.user.tag}`)
-				.addField("UserID", `${member.user.id}`)
-				.addField("Join server date", "Long long ago(_i guess_)")
-				.setTimestamp()
-				.setColor("#b200ff");
-				msg.channel.send({embed});
-			}
-		}
+
 		/*if (command === 'date') {
 			let [age, sex, location] = args;
 			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
 		}*/
+	}
+		
+	const LOLs = ["LUL", "HAHA"];
+	if( LOLs.some(word => msg.content.includes(word)) ) {
+		const LUL = client.emojis.find("name", "LUL");
+		msg.react(LUL.id);
+		msg.channel.sendMessage(`${LUL}`);
+
 	}
 	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
