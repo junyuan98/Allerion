@@ -37,8 +37,10 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "test"){ 
-			get createdTimestamp() { return Snowflake.deconstruct(msg.author.id).timestamp; }
-			msg.channel.sendMessage(createdTimestamp());
+			get joinedAt() {
+				  return new Date(this.joinedTimestamp);
+			  }
+			msg.channel.sendMessage(joinedAt());
 		}
 		/*if (command === 'date') {
 			let [age, sex, location] = args;
