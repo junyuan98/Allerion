@@ -27,7 +27,7 @@ client.on('message', msg => {
 		const command = args.shift().toLowerCase();
 	
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.13.1 - Low Profile");
+			msg.channel.sendMessage("Allerion version A.0.0.13.2 - Low Profile");
 			msg.channel.sendMessage("New command suggestions are welcomed");
 		}
 
@@ -70,12 +70,13 @@ client.on('message', msg => {
 			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
 		}
 		
-		/*if (command === 'profile') {
+		if (command === 'profile') {
 			let member = msg.mentions.members.first();
 			if (!member){
 				msg.channel.sendMessage("Please tag a vaild member");
 			}
 			else {
+				msg.channel.sendMessage("`Im supposed to be an embed right now`");
 				/*let newembed = new Discord.RichEmbed()
 				.setAuthor(member.user.username , member.user.avatarURL)
 				.setThumbnail(member.user.avatarURL)
@@ -84,8 +85,8 @@ client.on('message', msg => {
 				.addField("Join server date", "Long long ago(_i guess_)")
 				.setTimestamp()
 				.setColor("#b200ff");
-				msg.channel.send({newembed});
-		}*/
+				msg.channel.send({newembed});*/
+		}
 	}
 	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
