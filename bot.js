@@ -36,7 +36,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "test"){ 
-			msg.guild.emojis.map.forEach(){
+			msg.guild.emojis.forEach(){
 				msg.channel.sendMessage(`${emoji}` + "\n");
 			}
 		}
