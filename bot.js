@@ -14,8 +14,10 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
+	if (msg.content.startsWith(prefix)){
 	const args = msg.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
+	}
 	
 	if ( command === "version"){ 
 		msg.channel.sendMessage("Allerion version A.0.0.12.12 - Tag and run");
