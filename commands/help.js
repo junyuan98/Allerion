@@ -17,6 +17,7 @@ version
 listemojis    
 greetings     
 randomsing    
+
 **__Future Commands__**
 level         
 quoteoftheday 
