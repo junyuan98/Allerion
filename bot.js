@@ -45,7 +45,7 @@ client.on('message', msg => {
 		
 		if (command === 'profile') {
 			let member = msg.mentions.members.first();
-			if (!args[0]){
+			if (member.length !== 0){
 				if (!member){
 					msg.channel.sendMessage("Please tag a vaild member");
 				}
