@@ -70,16 +70,14 @@ client.on('message', msg => {
 			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
 		}
 		
-		/*if (command === 'profile') {
+		if (command === 'profile') {
 			let member = msg.mentions.members.first();
 			if (!member){
 				msg.channel.sendMessage("Please tag a vaild member");
 			}
 			else {
-				msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
-				msg.channel.sendMessage(`${member.user.username}`);
 				let embed = new Discord.RichEmbed()
-				.setAuthor(member.username , member.user.avatarURL)
+				.setAuthor(member.user.username , member.user.avatarURL)
 				.setThumbnail(member.user.avatarURL)
 				.addField("Username", `${member.user.tag}`)
 				.addField("UserID", `${member.user.id}`)
@@ -87,7 +85,7 @@ client.on('message', msg => {
 				.setTimestamp()
 				.setColor("#b200ff");
 				msg.channel.send({embed});
-		}*/
+		}
 	}
 	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
