@@ -76,7 +76,7 @@ client.on('message', msg => {
 				msg.channel.sendMessage("Please tag a vaild member");
 			}
 			else {
-				let embed = new Discord.RichEmbed()
+				let newembed = new Discord.RichEmbed()
 				.setAuthor("text", "https://bestsecuritysearch.com/wp-content/uploads/2016/10/discord-logo-bss.png")
 				.setThumbnail("https://image.ibb.co/dkT4yR/XD.png")
 				.addField("field", "text below field", true)
@@ -93,7 +93,7 @@ client.on('message', msg => {
 				.addField("Join server date", "Long long ago(_i guess_)")
 				.setTimestamp()
 				.setColor("#b200ff");*/
-				msg.channel.send({embed});
+				msg.channel.send({newembed});
 		}
 	}
 	
