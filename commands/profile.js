@@ -1,5 +1,8 @@
 exports.run = (client, msg, args) => {
 	
+	let member = msg.mentions.members.first();
+	msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
+	
 	let embed = new Discord.RichEmbed()
 	.setAuthor(msg.author.username , msg.author.avatarURL)
 	.setThumbnail(msg.author.avatarURL)
