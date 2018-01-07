@@ -11,6 +11,7 @@ exports.run = (client, msg, args) => {
 		.addField("Join server date", "Long long ago(_i guess_)")		
 		.setTimestamp()		
 		.setColor("#b200ff");
+		msg.channel.send({embed})
 	}
 	else {
 		let member = msg.mentions.members.first();
@@ -26,7 +27,6 @@ exports.run = (client, msg, args) => {
 			.addField("Join server date", "Long long ago(_i guess_)")		
 			.setTimestamp()		
 			.setColor("#b200ff");
-
 			msg.channel.send({embed})
 		}
 	}
