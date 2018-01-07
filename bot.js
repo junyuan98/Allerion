@@ -65,6 +65,11 @@ client.on('message', msg => {
 			msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
 		}
 
+		if (command === 'date') {
+			let [age, sex, location] = args;
+			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
+		}
+		
 		/*if (command === 'profile') {
 			let embed = new Discord.RichEmbed()
 			.setAuthor(msg.author.username , msg.author.avatarURL)
@@ -77,12 +82,6 @@ client.on('message', msg => {
 			.addBlankField(true);
 			msg.channel.send({embed});
 		}*/
-	//Beta commands
-	
-		if (command === 'test') {
-			let [age, sex, location] = args;
-			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
-		}
 	}
 	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
