@@ -6,14 +6,14 @@ exports.run = (client, msg, args) => {
 	
 	
 	let embed = new Discord.RichEmbed()
-	.setAuthor(member.username , member.user.avatarURL)
-	.setThumbnail(member.user.avatarURL)
-	.addField("Username", `${member.user.tag}`)
-	.addField("UserID", `${member.user.id}`)
-	.addField("Join server date", "Long long ago(_i guess_)")
+	.setAuthor("text", "https://bestsecuritysearch.com/wp-content/uploads/2016/10/discord-logo-bss.png")
+	.addField("field", "text below field", true)
+	.addField("field2", "text below field2", true)
+	.setImage("https://image.ibb.co/dkT4yR/XD.png")
+	.setFooter("text")
 	.setTimestamp()
 	.setColor("#b200ff")
-	.addBlankField(true);
+	.addBlankField(true)
 	
 	msg.channel.send({embed});
 }
