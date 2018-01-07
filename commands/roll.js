@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 
 exports.run = (client, msg, args) => {
         var number = Math.floor(Math.random() * args.length);
