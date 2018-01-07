@@ -7,7 +7,8 @@ exports.run = (client, msg, args) => {
 		.setAuthor(msg.author.username , msg.author.avatarURL)
 		.setThumbnail(msg.author.avatarURL)	           
 		.addField("Username", `${msg.author.tag}`)		
-		.addField("UserID", `${msg.author.id}`)		
+		.addField("UserID", `${msg.author.id}`)	
+		.addField("Date Discorded", `${msg.author.createdAt}`)
 		.addField("Join server date", "Long long ago(_i guess_)")		
 		.setTimestamp()		
 		.setColor("#b200ff");
@@ -23,7 +24,8 @@ exports.run = (client, msg, args) => {
 			.setAuthor(member.user.username , member.user.avatarURL)
 			.setThumbnail(member.user.avatarURL)	           
 			.addField("Username", `${member.user.tag}`)		
-			.addField("UserID", `${member.user.id}`)		
+			.addField("UserID", `${member.user.id}`)
+			.addField("Date Discorded", `${member.user.createdAt`})
 			.addField("Join server date", "Long long ago(_i guess_)")		
 			.setTimestamp()		
 			.setColor("#b200ff");
