@@ -27,7 +27,7 @@ client.on('message', msg => {
 		const command = args.shift().toLowerCase();
 	
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.12.25 - Tag and run");
+			msg.channel.sendMessage("Allerion version A.0.0.12.30 - Tag and run");
 			msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile _STILL_ malfunctioning```");
 		}
 
@@ -39,7 +39,7 @@ client.on('message', msg => {
 		}
 	
 		if (command === 'help') {
-			let embed = new Discord.RichEmbed()
+			let newembed = new Discord.RichEmbed()
 			.setAuthor("BOT Allerion" , client.user.avatarURL)
 			.setThumbnail(client.user.avatarURL)
 			.addField("**Commands**", "**ping**\n**avatar**\n**random**\n**version**\n**profile**\n**trigger**\n**greetings**\n**listemojis**\n**randomsing**")
@@ -48,7 +48,7 @@ client.on('message', msg => {
 			.setTimestamp()
 			.setColor("#000000")
 			.addBlankField(true);
-			msg.channel.send({embed});
+			msg.channel.send({newembed});
 		}
 	
 		if (command === 'kick') {
