@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 
 exports.run = (client, msg, args) => {
 	const embed = new Discord.RichEmbed()
-	.setAuthor("BOT Allerion" , client.user.avatarURL)
-	.setThumbnail(client.user.avatarURL)
+	.setAuthor("BOT Allerion")
 	.addField("field", "text below field")
 	.setFooter("Allerion")
 	.setTimestamp()
