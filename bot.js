@@ -27,7 +27,7 @@ client.on('message', msg => {
 		const command = args.shift().toLowerCase();
 	
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.13.2 - Low Profile");
+			msg.channel.sendMessage("Allerion version A.0.0.13.3 - Low Profile");
 			msg.channel.sendMessage("New command suggestions are welcomed");
 		}
 
@@ -79,7 +79,7 @@ client.on('message', msg => {
 				.addField("Join server date", "Long long ago(_i guess_)")
 				.setTimestamp()
 				.setColor("#b200ff");
-				msg.channel.send({newembed});
+				msg.channel.send({embed});
 			}
 		}
 		/*if (command === 'date') {
