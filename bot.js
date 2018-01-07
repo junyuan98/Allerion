@@ -26,7 +26,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.13.10 - Low Profile");
+			msg.channel.sendMessage("Allerion version A.0.0.13.11 - Low Profile");
 			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 	
@@ -84,7 +84,7 @@ client.on('message', msg => {
 	
 		if (command === 'tag') {
 			let member = msg.mentions.members.first();
-			msg.channel.sendMessage(member);
+			msg.channel.sendMessage(`${member}`);
 			msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
 		}
 
