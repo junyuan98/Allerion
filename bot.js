@@ -70,31 +70,22 @@ client.on('message', msg => {
 			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
 		}
 		
-		if (command === 'profile') {
+		/*if (command === 'profile') {
 			let member = msg.mentions.members.first();
 			if (!member){
 				msg.channel.sendMessage("Please tag a vaild member");
 			}
 			else {
-				let newembed = new Discord.RichEmbed()
-				.setAuthor("text", "https://bestsecuritysearch.com/wp-content/uploads/2016/10/discord-logo-bss.png")
-				.setThumbnail("https://image.ibb.co/dkT4yR/XD.png")
-				.addField("field", "text below field", true)
-				.addField("field2", "text below field2", true)
-				.setImage("https://image.ibb.co/dkT4yR/XD.png")
-				.setFooter("text")
-				.setTimestamp()
-				.setColor("#b200ff")
-				.addBlankField(true);
-				/*.setAuthor(member.user.username , member.user.avatarURL)
+				/*let newembed = new Discord.RichEmbed()
+				.setAuthor(member.user.username , member.user.avatarURL)
 				.setThumbnail(member.user.avatarURL)
 				.addField("Username", `${member.user.tag}`)
 				.addField("UserID", `${member.user.id}`)
 				.addField("Join server date", "Long long ago(_i guess_)")
 				.setTimestamp()
-				.setColor("#b200ff");*/
+				.setColor("#b200ff");
 				msg.channel.send({newembed});
-		}
+		}*/
 	}
 	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
