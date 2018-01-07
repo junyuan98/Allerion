@@ -5,7 +5,7 @@ exports.run = (client, msg, args) => {
 	msg.channel.sendMessage(`${member.user.username}`);
 	
 	
-	let embed = new Discord.RichEmbed()
+	const embed = new Discord.RichEmbed()
 	.setAuthor("text", "https://bestsecuritysearch.com/wp-content/uploads/2016/10/discord-logo-bss.png")
 	.addField("field", "text below field", true)
 	.addField("field2", "text below field2", true)
@@ -13,7 +13,7 @@ exports.run = (client, msg, args) => {
 	.setFooter("text")
 	.setTimestamp()
 	.setColor("#b200ff")
-	.addBlankField(true)
+	.addBlankField(true);
 	
-	msg.channel.send({embed});
+	msg.channel.send(embed);
 }
