@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 exports.run = (client, msg, args) => {
-	let helplist = new Discord.RichEmbed()
+	const helplist = new Discord.RichEmbed()
 	.setAuthor("BOT Allerion" , client.user.avatarURL)
 	.setThumbnail(client.user.avatarURL)
 	.addField("**Commands**", "**ping**\n**roll**\n**avatar**\n**random**\n**version**\n**profile**\n**trigger**\n**greetings**\n**listemojis**\n**randomsing**")
