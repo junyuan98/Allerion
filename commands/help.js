@@ -10,12 +10,4 @@ exports.run = (client, msg, args) => {
 	.setColor("#000000")
 	.addBlankField(true)
 	msg.channel.send({embed});
-	/*.setAuthor("BOT Allerion" , client.user.avatarURL)
-	.setThumbnail(client.user.avatarURL)
-	.addField("**Commands**", "**ping**\n**roll**\n**avatar**\n**random**\n**version**\n**profile**\n**trigger**\n**greetings**\n**listemojis**\n**randomsing**")
-	.addField("**Character**","**level**")
-	.setFooter("Allerion")
-	.setTimestamp()
-	.setColor("#000000")
-	.addBlankField(true);*/
 }
