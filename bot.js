@@ -34,7 +34,7 @@ client.on('message', msg => {
 			let newembed = new Discord.RichEmbed()
 			.setAuthor("BOT Allerion" , client.user.avatarURL)
 			.setThumbnail(client.user.avatarURL)
-			.addField("**Commands**", "**ping**\n**avatar**\n**random**\n**version**\n**profile**\n**trigger**\n**greetings**\n**listemojis**\n**randomsing**\n**randomnumber**")
+			.addField("**Commands**", "**ping**\n**roll**\n**avatar**\n**random**\n**version**\n**profile**\n**trigger**\n**greetings**\n**listemojis**\n**randomsing**")
 			.addField("**Character**","**level**")
 			.setFooter("Allerion")
 			.setTimestamp()
