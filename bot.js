@@ -2,12 +2,30 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
 const prefix = "a!";
+const newUsers = [];
 
 var ALLERIA = "331053004910362624";
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
 	client.user.setPresence({ game: { name: 'Havana oh nana', type: 2 } });
+});
+
+client.on("guildMemberAdd", (member) => {
+	const guild = member.guild;
+	if (!newUsers[guild.id]) newUsers[guild.id] = new Discord.Collection();
+	newUsers[guild.id].set(member.id, member.user);
+
+	if (newUsers[guild.id].size > 10) {
+		const userlist = newUsers[guild.id].map(u => u.toString()).join(" ");
+		guild.channels.get(guild.id).send("Welcome our new users!\n" + userlist);
+		newUsers[guild.id].clear();
+	}
+});
+
+client.on("guildMemberRemove", (member) => {
+	const guild = member.guild;
+	if (newUsers[guild.id].has(member.id)) newUsers.delete(member.id);
 });
 
 client.on('message', msg => {
@@ -26,7 +44,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.14.22 - Rolling in the deep");
+			msg.channel.sendMessage("Allerion version A.0.0.15.0 - Welcome to the server");
 			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 		
