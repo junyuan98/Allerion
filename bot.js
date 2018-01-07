@@ -26,7 +26,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.13.5 - Low Profile");
+			msg.channel.sendMessage("Allerion version A.0.0.13.7 - Low Profile");
 			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 	
@@ -44,34 +44,21 @@ client.on('message', msg => {
 		}
 		
 		if (command === 'profile') {
-			if( !msg.mentions.members()){
+			let member = msg.mentions.members.first();
+			
+			if (!member){
+				msg.channel.sendMessage("Please tag a vaild member");
+			}
+			else {
 				let embed = new Discord.RichEmbed()
-				.setAuthor(msg.author.username , msg.author.avatarURL)
-				.setThumbnail(msg.author.avatarURL)
-				.addField("Username", `${msg.author.tag}`)
-				.addField("UserID", `${msg.author.id}`)
+				.setAuthor(member.user.username , member.user.avatarURL)
+				.setThumbnail(member.user.avatarURL)
+				.addField("Username", `${member.user.tag}`)
+				.addField("UserID", `${member.user.id}`)
 				.addField("Join server date", "Long long ago(_i guess_)")
 				.setTimestamp()
 				.setColor("#b200ff");
 				msg.channel.send({embed});
-				}
-			}
-			else {
-				let member = msg.mentions.members.first();
-				if (!member){
-				msg.channel.sendMessage("Please tag a vaild member");
-				}
-				else {
-					let embed = new Discord.RichEmbed()
-					.setAuthor(member.user.username , member.user.avatarURL)
-					.setThumbnail(member.user.avatarURL)
-					.addField("Username", `${member.user.tag}`)
-					.addField("UserID", `${member.user.id}`)
-					.addField("Join server date", "Long long ago(_i guess_)")
-					.setTimestamp()
-					.setColor("#b200ff");
-					msg.channel.send({embed});
-			}
 		}
 		
 		if (command === 'kick') {
