@@ -85,7 +85,7 @@ client.on('message', msg => {
 				.addField("UserID", `${member.user.id}`)
 				.addField("Join server date", "Long long ago(_i guess_)")
 				.setTimestamp()
-				.setColor("#b200ff")
+				.setColor("#b200ff");
 				msg.channel.send({embed});
 		}
 	}
