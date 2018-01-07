@@ -26,21 +26,8 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.14.10 - Rolling in the deep");
+			msg.channel.sendMessage("Allerion version A.0.0.14.15 - Rolling in the deep");
 			msg.channel.sendMessage("`New command suggestions are welcomed`");
-		}
-	
-		if (command === 'help') {
-			let newembed = new Discord.RichEmbed()
-			.setAuthor("BOT Allerion" , client.user.avatarURL)
-			.setThumbnail(client.user.avatarURL)
-			.addField("**Commands**", "**ping**\n**roll**\n**avatar**\n**random**\n**version**\n**profile**\n**trigger**\n**greetings**\n**listemojis**\n**randomsing**")
-			.addField("**Character**","**level**")
-			.setFooter("Allerion")
-			.setTimestamp()
-			.setColor("#000000")
-			.addBlankField(true);
-			msg.channel.send({newembed});
 		}
 		
 		if (command === 'test') {
