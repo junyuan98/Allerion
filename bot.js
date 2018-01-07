@@ -26,7 +26,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.14.8 - Rolling in the deep");
+			msg.channel.sendMessage("Allerion version A.0.0.14.10 - Rolling in the deep");
 			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 	
@@ -45,12 +45,10 @@ client.on('message', msg => {
 		
 		if (command === 'test') {
 			let [name] = args;
-			if ( `${name}` === undefined) {
+			if ( name === undefined) 
 				msg.channel.sendMessage("Please type someshit after");
-			}
 			else 
 				msg.channel.sendMessage("You have typed some shit.");
-			
 		}
 
 
