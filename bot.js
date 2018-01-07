@@ -65,19 +65,13 @@ client.on('message', msg => {
 			msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
 		}
 
-		if (command === 'date') {
-			let [age, sex, location] = args;
-			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
-		}
-		
 		if (command === 'profile') {
 			let member = msg.mentions.members.first();
 			if (!member){
 				msg.channel.sendMessage("Please tag a vaild member");
 			}
 			else {
-				msg.channel.sendMessage("`Im supposed to be an embed right now`");
-				/*let newembed = new Discord.RichEmbed()
+				let embed = new Discord.RichEmbed()
 				.setAuthor(member.user.username , member.user.avatarURL)
 				.setThumbnail(member.user.avatarURL)
 				.addField("Username", `${member.user.tag}`)
@@ -85,8 +79,13 @@ client.on('message', msg => {
 				.addField("Join server date", "Long long ago(_i guess_)")
 				.setTimestamp()
 				.setColor("#b200ff");
-				msg.channel.send({newembed});*/
+				msg.channel.send({newembed});
+			}
 		}
+		/*if (command === 'date') {
+			let [age, sex, location] = args;
+			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
+		}*/
 	}
 	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
