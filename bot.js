@@ -59,6 +59,7 @@ client.on('message', msg => {
 				.setTimestamp()
 				.setColor("#b200ff");
 				msg.channel.send({embed});
+			}
 		}
 		
 		if (command === 'kick') {
