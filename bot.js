@@ -20,8 +20,8 @@ client.on('message', msg => {
 	}
 	
 	if ( command === "version"){ 
-		msg.channel.sendMessage("Allerion version A.0.0.12.12 - Tag and run");
-		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile_STILL_ malfunctioning```");
+		msg.channel.sendMessage("Allerion version A.0.0.12.20 - Tag and run");
+		msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile _STILL_ malfunctioning```");
 	}
 
 	/*try {
