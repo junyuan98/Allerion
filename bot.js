@@ -85,7 +85,7 @@ client.on('message', msg => {
 				.setFooter("text")
 				.setTimestamp()
 				.setColor("#b200ff")
-				.addBlankField(true)
+				.addBlankField(true);
 				/*.setAuthor(member.user.username , member.user.avatarURL)
 				.setThumbnail(member.user.avatarURL)
 				.addField("Username", `${member.user.tag}`)
