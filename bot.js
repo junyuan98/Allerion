@@ -27,8 +27,8 @@ client.on('message', msg => {
 		const command = args.shift().toLowerCase();
 	
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.12.30 - Tag and run");
-			msg.channel.sendMessage("```TAGGING HAS SUCCEED, profile _STILL_ malfunctioning```");
+			msg.channel.sendMessage("Allerion version A.0.0.13.0 - Low Profile");
+			msg.channel.sendMessage("New command suggestions are welcomed");
 		}
 
 		try {
@@ -70,18 +70,24 @@ client.on('message', msg => {
 			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
 		}
 		
-		/*if (command === 'profile') {
-			let embed = new Discord.RichEmbed()
-			.setAuthor(msg.author.username , msg.author.avatarURL)
-			.setThumbnail(msg.author.avatarURL)
-			.addField("Username", `${msg.author.tag}`)
-			.addField("UserID", `${msg.author.id}`)
-			.addField("Join server date", "Long long ago(_i guess_)")
-			.setTimestamp()
-			.setColor("#b200ff")
-			.addBlankField(true);
-			msg.channel.send({embed});
-		}*/
+		if (command === 'profile') {
+			let member = msg.mentions.members.first();
+			if (!member){
+				msg.channel.sendMessage("Please tag a vaild member");
+			}
+			else {
+				msg.channel.sendMessage("<@!" + `${member.id}` +"> , Life is nice");
+				msg.channel.sendMessage(`${member.user.username}`);
+				let embed = new Discord.RichEmbed()
+				.setAuthor(member.username , member.user.avatarURL)
+				.setThumbnail(member.user.avatarURL)
+				.addField("Username", `${member.user.tag}`)
+				.addField("UserID", `${member.user.id}`)
+				.addField("Join server date", "Long long ago(_i guess_)")
+				.setTimestamp()
+				.setColor("#b200ff")
+				msg.channel.send({embed});
+		}
 	}
 	
 	const swearWords = ["fuck", "cb", "sohai", "noob"];
