@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 //Client, basically the bot
 const client = new Discord.Client();
 //What we need for points database
-const sql = require("sqlite");
-sql.open("./score.sqlite");
+//const sql = require("sqlite");
+//sql.open("./score.sqlite");
 
 //Set the preferences
 const prefix = "a!";
@@ -13,7 +13,7 @@ var ALLERIA = "331053004910362624";
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
 	client.user.setStatus('dnd');
-	client.user.setPresence({ game: { name: 'Havana oh nana', type: 2 } });
+	client.user.setPresence({ game: { name: 'on Heroku', type: 0 } });
 });
 
 client.on('guildMemberAdd', member => {
@@ -29,7 +29,7 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type !== "text") return; // Only Text channels.
 	
-	sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
+	/*sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
 		if (!row) {
 			sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [msg.author.id, 1, 0]);
 		} else {
@@ -46,7 +46,7 @@ client.on('message', msg => {
 		sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, level INTEGER)").then(() => {
 			sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [msg.author.id, 1, 0]);
 		});
-	});
+	});*/
 	
 	if (msg.content.startsWith(prefix)){
 		const args = msg.content.slice(prefix.length).trim().split(/ +/g);
@@ -60,14 +60,9 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16A.30 - LEVEL UP!");
-			msg.channel.sendMessage("`Levels are ded`");
+			msg.channel.sendMessage("Allerion version A.0.0.20.0 - Heroku mode");
+			msg.channel.sendMessage("`Levels are ded on heroku`");
 		}
-		
-		/*if (command === 'date') {
-			let [age, sex, location] = args;
-			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
-		}*/
 	}
 
 	const LOLs = ["LUL", "HAHA"];
