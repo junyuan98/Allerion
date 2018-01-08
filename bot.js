@@ -36,10 +36,6 @@ client.on('message', msg => {
 		userData.level = curLevel;
 		msg.reply(`You"ve leveled up to level **${curLevel}**! Road to God Tier is real?`);
 	}
-		
-	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
-		if (err) console.error(err)
-	});
 	
 	if (msg.content.startsWith(prefix)){
 		const args = msg.content.slice(prefix.length).trim().split(/ +/g);
@@ -85,6 +81,10 @@ client.on('message', msg => {
 	if( extreme.some(word => msg.content.toLowerCase().includes(word)) ) {
 		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
 	}
+	
+	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+		if (err) console.error(err)
+	});
 	
 	//Tags people if know id -> msg.channel.sendMessage("<@!" + msg.author.id +">");
 });
