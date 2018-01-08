@@ -35,8 +35,14 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.10 - LEVEL UP!");
+			msg.channel.sendMessage("Allerion version A.0.0.16.20 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are enabled (?)`");
+		}
+		
+		if ( command === "save" ){
+			fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+				if (err) console.error(err)
+			});
 		}
 		
 		/*if (command === 'date') {
