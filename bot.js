@@ -34,7 +34,7 @@ client.on('message', msg => {
 	if (curLevel > userData.level) {
 		// Level up!
 		userData.level = curLevel;
-		msg.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
+		msg.reply(`You"ve leveled up to level **${curLevel}**! Road to God Tier is real?`);
 	}
 		
 	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
@@ -53,7 +53,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.5 - Leveling is fun");
+			msg.channel.sendMessage("Allerion version A.0.0.16.5 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are enabled (?)`");
 		}
 		
