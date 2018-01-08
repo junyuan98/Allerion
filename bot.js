@@ -1,13 +1,18 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const Enmap = require("enmap");
-const EnmapLevel = require("enmap-level");
 const prefix = "a!";
 var ALLERIA = "331053004910362624";
 
+const Enmap = require("enmap");
+const EnmapLevel = require("enmap-level");
+
+const pointProvider = new EnmapLevel({name: "points"});
+this.points = new Enmap({provider: pointProvider});
+
+
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
-	client.user.setStatus('idle');
+	client.user.setStatus('dnd');
 	client.user.setPresence({ game: { name: 'Havana oh nana', type: 2 } });
 });
 
@@ -36,7 +41,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16A.0 - LEVEL UP!");
+			msg.channel.sendMessage("Allerion version A.0.0.16A.1 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are ded`");
 		}
 		
