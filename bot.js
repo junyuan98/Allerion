@@ -28,7 +28,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', msg => {
 	if (msg.author.bot) return;
-	client.pointsMonitor(client, msg);
+	//client.pointsMonitor(client, msg);
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
 	if (msg.content.startsWith(prefix)){
