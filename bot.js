@@ -3,6 +3,9 @@ const client = new Discord.Client();
 const prefix = "a!";
 var ALLERIA = "331053004910362624";
 
+const Enmap = require("enmap");
+const EnmapLevel = require("enmap-level");
+
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
 	client.user.setStatus('dnd');
