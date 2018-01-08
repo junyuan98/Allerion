@@ -30,7 +30,7 @@ client.on('message', msg => {
 	let userData = points[msg.author.id];
 	userData.points++;
 
-	let curLevel = Math.floor(Math.sqrt(userData.points));
+	let curLevel = Math.floor(0.5 * Math.sqrt(userData.points));
 	if (curLevel > userData.level) {
 		// Level up!
 		userData.level = curLevel;
