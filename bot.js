@@ -35,7 +35,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.1 - Leveling is fun");
+			msg.channel.sendMessage("Allerion version A.0.0.16.2 - Leveling is fun");
 			msg.channel.sendMessage("`Levels are enabled (?)`");
 		}
 		
@@ -43,30 +43,30 @@ client.on('message', msg => {
 			let [age, sex, location] = args;
 			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
 		}*/
-
-		if (!points[msg.author.id]) points[msg.author.id] = {
-			points: 0,
-			level: 0
-		};
-		let userData = points[msg.author.id];
-		userData.points++;
-
-		let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
-		if (curLevel > userData.level) {
-			// Level up!
-			userData.level = curLevel;
-			msg.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
-		}
-
-		if (command === "level") {
-			msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
-		}
-		
-		fs.writeFile("./points.json", JSON.stringify(points), (err) => {
-			if (err) console.error(err)
-		});
 	}
 		
+	if (!points[msg.author.id]) points[msg.author.id] = {
+		points: 0,
+		level: 0
+	};
+	let userData = points[msg.author.id];
+	userData.points++;
+
+	let curLevel = Math.floor(Math.sqrt(userData.points));
+	if (curLevel > userData.level) {
+		// Level up!
+		userData.level = curLevel;
+		msg.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
+	}
+
+	if (command === "level") {
+		msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
+	}
+		
+	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+		if (err) console.error(err)
+	});
+	
 	const LOLs = ["LUL", "HAHA"];
 	if( LOLs.some(word => msg.content.includes(word)) ) {
 		const LUL = client.emojis.find("name", "LUL");
