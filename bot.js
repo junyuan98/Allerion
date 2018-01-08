@@ -7,6 +7,7 @@ var ALLERIA = "331053004910362624";
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
+	client.user.setStatus('idle');
 	client.user.setPresence({ game: { name: 'Havana oh nana', type: 2 } });
 });
 
@@ -35,7 +36,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.33 - LEVEL UP!");
+			msg.channel.sendMessage("Allerion version A.0.0.16.40 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are enabled (?)`");
 		}
 		
