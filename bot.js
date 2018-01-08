@@ -10,9 +10,13 @@ client.on('ready', () => {
 	client.user.setPresence({ game: { name: 'Havana oh nana', type: 2 } });
 });
 
-client.on("guildMemberAdd", (member) => {
-	console.log(`Our new member "${member.user.username}" has joined "${member.guild.name}"` );
-	member.guild.channels.get("welcome").send(`"${member.user.username}" has joined this server`);
+client.on('guildMemberAdd', member => {
+	// Send the message to a designated channel on a server:
+	const channel = member.guild.channels.find('name', 'member-log');
+	// Do nothing if the channel wasn't found on this server
+	if (!channel) return;
+	// Send the message, mentioning the member
+	channel.send(`Welcome to the server, ${member}`);
 });
 
 client.on('message', msg => {
@@ -31,7 +35,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.15.10 - Welcome to the server");
+			msg.channel.sendMessage("Allerion version A.0.0.15.17 - Welcome to the server");
 			msg.channel.sendMessage("`New command suggestions are welcomed`");
 		}
 		
