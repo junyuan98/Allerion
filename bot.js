@@ -3,13 +3,8 @@ const Discord = require("discord.js");
 //Client, basically the bot
 const client = new Discord.Client();
 //What we need for points database
-const Enmap = require("enmap");
-const EnmapLevel = require("enmap-level");
-
-require("./modules/functions.js")(client);
-
-const pointProvider = new EnmapLevel({name: "points"});
-this.points = new Enmap({provider: pointProvider});
+const sql = require("sqlite");
+sql.open("./score.sqlite");
 
 //Set the preferences
 const prefix = "a!";
@@ -32,8 +27,26 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', msg => {
 	if (msg.author.bot) return;
-	client.pointsMonitor(client, msg);
-	if (msg.channel.type === "dm") return; // Ignore DM channels.
+	if (msg.channel.type !== "text") return; // Only Text channels.
+	
+	sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
+		if (!row) {
+			sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [msg.author.id, 1, 0]);
+		} else {
+			let curLevel = Math.floor(0.1 * Math.sqrt(row.points + 1));
+			if (curLevel > row.level) {
+				row.level = curLevel;
+				sql.run(`UPDATE scores SET points = ${row.points + 1}, level = ${row.level} WHERE userId = ${msg.author.id}`);
+				msg.reply(`You've leveled up to level **${curLevel}**!`);
+			}
+			sql.run(`UPDATE scores SET points = ${row.points + 1} WHERE userId = ${msg.author.id}`);
+		}
+	}).catch(() => {
+		console.error;
+		sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, level INTEGER)").then(() => {
+			sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [msg.author.id, 1, 0]);
+		});
+	});
 	
 	if (msg.content.startsWith(prefix)){
 		const args = msg.content.slice(prefix.length).trim().split(/ +/g);
@@ -41,13 +54,13 @@ client.on('message', msg => {
 	
 		try {
 			let commandFile = require(`./commands/${command}.js`);
-			commandFile.run(client, msg, args);
+			commandFile.run(client, msg, args, sql);
 		} catch (err) {
 			console.error(err);
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16A.25 - LEVEL UP!");
+			msg.channel.sendMessage("Allerion version A.0.0.16A.30 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are ded`");
 		}
 		
