@@ -6,21 +6,21 @@ exports.run = (client, msg, args) => {
 	.setThumbnail(client.user.avatarURL)
 	.setDescription(`
 		**__Available Commands__**
-help   
-ping      
-roll         
-avatar     
-random        
-trigger       
-profile       
-version       
-listemojis    
-greetings     
-randomsing    
+${prefix}help   
+${prefix}ping      
+${prefix}roll         
+${prefix}avatar     
+${prefix}random        
+${prefix}trigger       
+${prefix}profile       
+${prefix}version       
+${prefix}listemojis    
+${prefix}greetings     
+${prefix}randomsing    
 
 **__Future Commands__**
-level         
-quoteoftheday 
+${prefix}level         
+${prefix}quoteoftheday 
 	`)
 	.setFooter("Allerion")
 	.setTimestamp()
