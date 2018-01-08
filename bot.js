@@ -8,8 +8,8 @@ const EnmapLevel = require("enmap-level");
 
 //require("./modules/functions.js")(client);
 
-//const pointProvider = new EnmapLevel({name: "points"});
-//this.points = new Enmap({provider: pointProvider});
+const pointProvider = new EnmapLevel({name: "points"});
+this.points = new Enmap({provider: pointProvider});
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
@@ -43,7 +43,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16A.20 - LEVEL UP!");
+			msg.channel.sendMessage("Allerion version A.0.0.16A.21 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are ded`");
 		}
 		
