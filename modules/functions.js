@@ -1,0 +1,3 @@
+client.pointsMonitor = (client, message) => {
+
+};
