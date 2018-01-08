@@ -35,7 +35,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.25 - LEVEL UP!");
+			msg.channel.sendMessage("Allerion version A.0.0.16.33 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are enabled (?)`");
 		}
 		
@@ -69,17 +69,10 @@ client.on('message', msg => {
 	}
 
 	if (!userData[msg.author.id]) userData[msg.author.id] = {
-		points: 0,
-		level: 0
+		messagesSent: 0
 	};
 	
-	userData[msg.author.id].points++;
-	let curLevel = Math.floor(0.5 * Math.sqrt(userData[msg.author.id].points));
-	if (curLevel > userData[msg.author.id].level) {
-		// Level up!
-		userData[msg.author.id].level = curLevel;
-		msg.reply(`You"ve leveled up to level **${curLevel}**! Road to God Tier is real?`);
-	}
+	userData[msg.author.id].messagesSent++;
 	
 	fs.writeFile("./points.json", JSON.stringify(userData), (err) => {
 		if (err) console.error(err)
