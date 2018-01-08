@@ -49,7 +49,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.5 - LEVEL UP!");
+			msg.channel.sendMessage("Allerion version A.0.0.16.10 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are enabled (?)`");
 		}
 		
