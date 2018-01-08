@@ -23,28 +23,6 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
-	if (msg.content.startsWith(prefix)){
-		const args = msg.content.slice(prefix.length).trim().split(/ +/g);
-		const command = args.shift().toLowerCase();
-	
-		try {
-			let commandFile = require(`./commands/${command}.js`);
-			commandFile.run(client, msg, args);
-		} catch (err) {
-			console.error(err);
-		}
-		
-		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.2 - Leveling is fun");
-			msg.channel.sendMessage("`Levels are enabled (?)`");
-		}
-		
-		/*if (command === 'date') {
-			let [age, sex, location] = args;
-			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
-		}*/
-	}
-		
 	if (!points[msg.author.id]) points[msg.author.id] = {
 		points: 0,
 		level: 0
@@ -58,15 +36,33 @@ client.on('message', msg => {
 		userData.level = curLevel;
 		msg.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
 	}
-
-	if (command === "level") {
-		msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
-	}
 		
 	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
 		if (err) console.error(err)
 	});
 	
+	if (msg.content.startsWith(prefix)){
+		const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+		const command = args.shift().toLowerCase();
+	
+		try {
+			let commandFile = require(`./commands/${command}.js`);
+			commandFile.run(client, msg, args);
+		} catch (err) {
+			console.error(err);
+		}
+		
+		if ( command === "version"){ 
+			msg.channel.sendMessage("Allerion version A.0.0.16.5 - Leveling is fun");
+			msg.channel.sendMessage("`Levels are enabled (?)`");
+		}
+		
+		/*if (command === 'date') {
+			let [age, sex, location] = args;
+			msg.reply(`Hello ${msg.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
+		}*/
+	}
+
 	const LOLs = ["LUL", "HAHA"];
 	if( LOLs.some(word => msg.content.includes(word)) ) {
 		const LUL = client.emojis.find("name", "LUL");
