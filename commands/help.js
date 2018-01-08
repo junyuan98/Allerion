@@ -5,22 +5,22 @@ exports.run = (client, msg, args) => {
 	.setAuthor("BOT Allerion", client.user.avatarURL)
 	.setThumbnail(client.user.avatarURL)
 	.setDescription(`
-		**__Available Commands__**
-${prefix}help   
-${prefix}ping      
-${prefix}roll         
-${prefix}avatar     
-${prefix}random        
-${prefix}trigger       
-${prefix}profile       
-${prefix}version       
-${prefix}listemojis    
-${prefix}greetings     
-${prefix}randomsing    
+**__Available Commands__**
+help   
+ping      
+roll         
+avatar     
+random        
+trigger       
+profile       
+version       
+listemojis    
+greetings     
+randomsing    
 
 **__Future Commands__**
-${prefix}level         
-${prefix}quoteoftheday 
+level         
+quoteoftheday 
 	`)
 	.setFooter("Allerion")
 	.setTimestamp()
