@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
 const prefix = "a!";
-let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
+var userData = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 var ALLERIA = "331053004910362624";
 
 client.on('ready', () => {
@@ -35,7 +35,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.21 - LEVEL UP!");
+			msg.channel.sendMessage("Allerion version A.0.0.16.25 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are enabled (?)`");
 		}
 		
@@ -68,22 +68,20 @@ client.on('message', msg => {
 		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
 	}
 
-	if (!points[msg.author.id]) points[msg.author.id] = {
+	if (!userData[msg.author.id]) userData[msg.author.id] = {
 		points: 0,
 		level: 0
 	};
 	
-	let userData = points[msg.author.id];
-	userData.points++;
-
-	let curLevel = Math.floor(0.5 * Math.sqrt(userData.points));
-	if (curLevel > userData.level) {
+	userData[msg.author.id].points++;
+	let curLevel = Math.floor(0.5 * Math.sqrt(userData[msg.author.id].points));
+	if (curLevel > userData[msg.author.id].level) {
 		// Level up!
-		userData.level = curLevel;
+		userData[msg.author.id].level = curLevel;
 		msg.reply(`You"ve leveled up to level **${curLevel}**! Road to God Tier is real?`);
 	}
 	
-	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+	fs.writeFile("./points.json", JSON.stringify(userData), (err) => {
 		if (err) console.error(err)
 	});
 	
