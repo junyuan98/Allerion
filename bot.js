@@ -1,8 +1,8 @@
+// Load up the discord.js library
 const Discord = require("discord.js");
+//Client, basically the bot
 const client = new Discord.Client();
-const prefix = "a!";
-var ALLERIA = "331053004910362624";
-
+//What we need for points database
 const Enmap = require("enmap");
 const EnmapLevel = require("enmap-level");
 
@@ -10,6 +10,10 @@ require("./modules/functions.js")(client);
 
 const pointProvider = new EnmapLevel({name: "points"});
 this.points = new Enmap({provider: pointProvider});
+
+//Set the preferences
+const prefix = "a!";
+var ALLERIA = "331053004910362624";
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
