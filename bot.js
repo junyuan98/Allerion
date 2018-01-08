@@ -3,13 +3,13 @@ const client = new Discord.Client();
 const prefix = "a!";
 var ALLERIA = "331053004910362624";
 
-/*const Enmap = require("enmap");
+const Enmap = require("enmap");
 const EnmapLevel = require("enmap-level");
 
 require("./modules/functions.js")(client);
 
 const pointProvider = new EnmapLevel({name: "points"});
-this.points = new Enmap({provider: pointProvider});*/
+this.points = new Enmap({provider: pointProvider});
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.username}!`);
