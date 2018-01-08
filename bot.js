@@ -35,8 +35,8 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.15.17 - Welcome to the server");
-			msg.channel.sendMessage("`New command suggestions are welcomed`");
+			msg.channel.sendMessage("Allerion version A.0.0.16.0 - Leveling is fun");
+			msg.channel.sendMessage("`Levels are enabled (?)`");
 		}
 		
 		/*if (command === 'date') {
