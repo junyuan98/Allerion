@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
 const prefix = "a!";
-var userData = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 var ALLERIA = "331053004910362624";
 
 client.on('ready', () => {
@@ -30,14 +29,14 @@ client.on('message', msg => {
 	
 		try {
 			let commandFile = require(`./commands/${command}.js`);
-			commandFile.run(client, msg, args, userData);
+			commandFile.run(client, msg, args);
 		} catch (err) {
 			console.error(err);
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.40 - LEVEL UP!");
-			msg.channel.sendMessage("`Levels are enabled (?)`");
+			msg.channel.sendMessage("Allerion version A.0.0.16A.0 - LEVEL UP!");
+			msg.channel.sendMessage("`Levels are ded`");
 		}
 		
 		/*if (command === 'date') {
@@ -67,18 +66,7 @@ client.on('message', msg => {
 	const extreme = ["extreme"];
 	if( extreme.some(word => msg.content.toLowerCase().includes(word)) ) {
 		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
-	}
-
-	if (!userData[msg.author.id]) userData[msg.author.id] = {
-		messagesSent: 0
-	};
-	
-	userData[msg.author.id].messagesSent++;
-	
-	fs.writeFile("./points.json", JSON.stringify(userData), (err) => {
-		if (err) console.error(err)
-	});
-	
+	}	
 	//Tags people if know id -> msg.channel.sendMessage("<@!" + msg.author.id +">");
 });
 
