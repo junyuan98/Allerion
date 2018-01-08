@@ -35,7 +35,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16.0 - Leveling is fun");
+			msg.channel.sendMessage("Allerion version A.0.0.16.1 - Leveling is fun");
 			msg.channel.sendMessage("`Levels are enabled (?)`");
 		}
 		
@@ -59,7 +59,7 @@ client.on('message', msg => {
 		}
 
 		if (command === "level") {
-			mesg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
+			msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
 		}
 		
 		fs.writeFile("./points.json", JSON.stringify(points), (err) => {
