@@ -25,6 +25,6 @@ ${prefix}quoteoftheday
 	.setFooter("Allerion")
 	.setTimestamp()
 	.setColor("#000000")
-	.addBlankField(true)
+	.addBlankField(true);
 	msg.channel.send({embed});
 }
