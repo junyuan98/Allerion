@@ -23,25 +23,6 @@ client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
-	if (!points[msg.author.id]) points[msg.author.id] = {
-		points: 0,
-		level: 0
-	};
-	let userData = points[msg.author.id];
-	userData.points++;
-
-	let curLevel = Math.floor(0.5 * Math.sqrt(userData.points));
-	if (curLevel > userData.level) {
-		// Level up!
-		userData.level = curLevel;
-		msg.reply(`You"ve leveled up to level **${curLevel}**! Road to God Tier is real?`);
-	}
-	
-	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
-		if (err) console.error(err)
-	});
-	
-	
 	if (msg.content.startsWith(prefix)){
 		const args = msg.content.slice(prefix.length).trim().split(/ +/g);
 		const command = args.shift().toLowerCase();
@@ -87,6 +68,25 @@ client.on('message', msg => {
 		msg.channel.sendMessage("GIFF EXTREME OR RIOT");
 	}
 
+	if (!points[msg.author.id]) points[msg.author.id] = {
+		points: 0,
+		level: 0
+	};
+	
+	let userData = points[msg.author.id];
+	userData.points++;
+
+	let curLevel = Math.floor(0.5 * Math.sqrt(userData.points));
+	if (curLevel > userData.level) {
+		// Level up!
+		userData.level = curLevel;
+		msg.reply(`You"ve leveled up to level **${curLevel}**! Road to God Tier is real?`);
+	}
+	
+	fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+		if (err) console.error(err)
+	});
+	
 	//Tags people if know id -> msg.channel.sendMessage("<@!" + msg.author.id +">");
 });
 
