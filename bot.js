@@ -28,7 +28,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', msg => {
 	if (msg.author.bot) return;
-	//client.pointsMonitor(client, msg);
+	client.pointsMonitor(client, msg);
 	if (msg.channel.type === "dm") return; // Ignore DM channels.
 	
 	if (msg.content.startsWith(prefix)){
@@ -43,7 +43,7 @@ client.on('message', msg => {
 		}
 		
 		if ( command === "version"){ 
-			msg.channel.sendMessage("Allerion version A.0.0.16A.21 - LEVEL UP!");
+			msg.channel.sendMessage("Allerion version A.0.0.16A.22 - LEVEL UP!");
 			msg.channel.sendMessage("`Levels are ded`");
 		}
 		
