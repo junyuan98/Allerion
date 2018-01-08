@@ -1,4 +1,6 @@
-exports.run = async (client, msg, args) => {
-        const scoreLevel = client.points.get(msg.author.id).level;
-        !scoreLevel ? msg.channel.send('You have no levels yet.') : msg.channel.send(`You are currently level ${scoreLevel}!`);
+exports.run = async (client, msg, args, sql) => {
+        sql.get(`SELECT * FROM scores WHERE userId ="${msg.author.id}"`).then(row => {
+                if (!row) return msg.reply("Your current level is 0");
+                msg.reply(`Your current level is ${row.level}`);
+        });
 }
